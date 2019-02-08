@@ -1,0 +1,161 @@
+
+
+@import  '../../../defaults.styl'
+
+
+header
+    height 200px !important
+    mat-toolbar
+        height 115px !important
+        background white !important
+        display flex
+        justify-content space-around
+        padding 0 10vw
+		.logo-content
+			display flex
+			justify-content center
+			align-items center
+			width 80px
+			height 80px
+			&:hover
+				cursor pointer
+			&:focus
+				outline 0px
+			img
+				width 80px
+				height 80px
+		.inicioSesion
+			display flex
+			flex-direction row
+			justify-content center
+			align-items center
+			button
+				height 40px
+			.sinUsuario
+				display flex
+				flex-direction row
+				justify-content center
+				align-items center
+				.btn-login-main
+					min-width inherit 
+					width 57px
+					display flex
+					justify-content center
+					align-items center
+				.texto-container
+					height 40px
+					.texto1, .texto2
+						width 100%
+						p
+							font-size 10px
+							text-align justify
+							margin 0
+							height 10px
+			.linea-vertical
+				height 40px
+				width 1px
+				background-color gray
+				margin-left 10px
+				margin-right 10px
+			.avatarbutton
+					.avatar-content
+					display flex
+						.avatar
+							border-radius 40px
+							overflow hidden
+							height 36px
+							width 36px
+							background-position center
+							background-size cover
+							margin-right 5px
+        // .inicioSesion
+        //     display flex
+		// 	flex-direction row
+		// 	justify-content center
+		// 	align-items center
+        //     height 40px
+        //     button
+        //         height 40px
+        //     .avatarbutton
+        //         .avatar-content
+        //             display flex
+        //             .avatar
+        //                 border-radius 40px
+        //                 overflow hidden
+        //                 height 36px
+        //                 width 36px
+        //                 background-position center
+        //                 background-size cover
+        //                 margin-right 5px
+    // menu, section
+    //     margin 0px
+    //     padding 0px
+    //     width 100%
+    //     height 40px
+    //     background-color rojo1
+    // button
+    //     color white
+
+
+
+footer
+	background-color negro
+	.contenedor-abajo
+		display flex
+		flex-direction  row
+		justify-content space-between
+		align-items center
+		.copyrigth
+			display flex
+			flex-direction column
+			margin-left 30px
+			p
+				color white
+				font-size 11px
+				margin 5px
+			.aviso
+				display flex
+				flex-direction row
+				justify-content flex-start
+				.btn-privacidad, .btn-condiciones
+					height 16px
+					display flex
+					justify-content center
+					align-items center
+					line-height inherit !important
+					span
+						font-size 8px
+						color white
+						text-transform capitalize
+				.linea-abajo
+					margin-top 1px
+					height 8px
+					border 0.5px solid white
+		.contactos
+			display flex
+			flex-direction row
+			justify-content space-between
+			align-items center
+			width 25%
+			margin-right 10vw
+			.correo, .telefono
+				display flex
+				flex-direction row
+				justify-content center
+				align-items center
+				p
+					margin 0px
+					color white
+					font-size 10px
+					font-weight bolder
+		.imagen
+			background-color white
+			width 10%
+			display flex
+			justify-content center
+			align-items center
+			.logo-abajo
+				height 70px
+				img
+					width 79%
+					height 96%

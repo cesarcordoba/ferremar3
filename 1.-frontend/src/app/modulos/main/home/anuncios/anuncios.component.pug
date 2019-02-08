@@ -1,0 +1,9 @@
+
+.anuncios
+    .slider(*ngIf="anuncios")
+        ngx-slick.carousel(#slickModal="slick-modal",   [config]="slideConfig",  (afterChange)="afterChange($event)"  )
+            .slide(ngxSlickItem,  *ngFor="let anuncio of anuncios.items ; index as i ")
+                anuncio([anuncio]="anuncio")
+
+
+// mat-paginator([length]="anuncios.items.length", [pageSize]="10", [pageSizeOptions]="[5, 10, 25, 100]")

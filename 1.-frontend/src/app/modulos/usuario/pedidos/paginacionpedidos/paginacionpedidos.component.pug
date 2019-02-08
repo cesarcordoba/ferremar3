@@ -1,0 +1,43 @@
+.pedidos
+    .pedido(*ngFor="let pedido of ordenes.items")
+
+        .encabezado
+            .fecha
+                strong Fecha
+                span {{pedido.createdAt | date:'shortDate'}}
+            .total
+                strong Total
+                span {{pedido.total | currency }}
+            .info
+                .proceso
+                    //- span([innerHtml]="obtenerProceso(pedido?.status)")
+                    
+                    .procesos
+                        
+                        mat-slider([disabled]="true", [max]="4", [min]="0",  [(ngModel)]="pedido.status")
+                    span(*ngIf="pedido.status === 0") Pendiente de verificación
+                    span(*ngIf="pedido.status === 1") Pendiente de pago
+                    span(*ngIf="pedido.status === 2") En proceso de envio
+                    span(*ngIf="pedido.status === 3") Completado
+        .contenido
+            .transacciones
+                mat-table(mat-table, [dataSource]="pedido.transacciones")
+                    ng-container(matColumnDef="imagen")
+                        mat-header-cell( *matHeaderCellDef) Imagen
+                        mat-cell( *matCellDef="let element")
+                            
+                            img(style=" height : 80px; width : 80px; ", [src]="element?.version?.producto?.portadas[0]?.link")
+                    ng-container(matColumnDef="nombre")
+                        mat-header-cell( *matHeaderCellDef) Nombre
+                        mat-cell( *matCellDef="let element")
+                            .info
+                                .titulo
+                                    .cantidad {{ element?.cantidad }}
+                                    .nombre {{ element?.version?.producto?.nombre }}
+                                .precio {{ element?.total | currency }}
+                    mat-header-row( *matHeaderRowDef="['imagen', 'nombre']")
+                    mat-row(*matRowDef="let row; columns: ['imagen','nombre'];")
+            .acciones
+                .cuadro
+                    button(mat-stroked-button, (click)="ir(pedido)") Revisar el pedido
+mat-paginator([length]="ordenes.paginas * filtro.limite", [pageSize]="10", [pageSizeOptions]="[5, 10, 25, 100]", (page)="cambioPagina($event)")

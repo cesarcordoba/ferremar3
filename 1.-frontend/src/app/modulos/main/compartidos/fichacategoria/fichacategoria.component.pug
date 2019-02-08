@@ -1,0 +1,11 @@
+.ficha
+    .imagen
+        picture
+            source(srcset="{{imagen.link}}", *ngFor="let imagen of portadas", media="(min-width : 0px)")
+            img(src="{{portada}}")
+        .categoria
+            p {{categoria?.nombre}}
+
+    //- p {{item?.producto?.nombre}}
+    .boton
+        button(mat-button, (click)="ir()") ver detalle

@@ -1,0 +1,10 @@
+.usuario(*ngIf="usuario")
+    section
+        imagenavatar([id]="usuario.id")
+    section
+        .informacionbasica
+            .titulo Información basica
+            formulariousuario([pasar]="pasar")
+        .llave
+            .titulo Credenciales
+            formulariollave([pasar]="pasar")

@@ -1,0 +1,25 @@
+.container
+    .content
+        mat-card
+            h4 {{ categoria?.nombre }}
+            
+            //- mat-tree([dataSource]="categorias")
+            //-     mat-tree-node(*matTreeNodeDef="let node" matTreeNodeToggle)
+            .categorias
+                mat-accordion
+                    mat-expansion-panel
+                        mat-expansion-panel-header
+                            mat-panel-description Categorias
+                        mat-accordion
+                            mat-expansion-panel.categoria(*ngFor="let categoria of categorias")
+                                mat-expansion-panel-header
+                                    mat-panel-title {{ categoria.categoria.nombre }}
+                                    mat-panel-description Atributos
+                                mat-accordion
+                                    mat-expansion-panel.atributo(*ngFor="let atributo of categoria.atributos")
+                                        mat-expansion-panel-header
+                                            mat-panel-title {{ atributo.atributo.nombre }}
+                                            mat-panel-description Opciones
+                                        mat-list
+                                            mat-list-item.opcion(*ngFor="let opcion of atributo.opciones") {{ opcion.nombre }}
+                                    

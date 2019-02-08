@@ -1,0 +1,36 @@
+
+section
+    .container
+        .content
+            .busqueda
+                aside
+                    //- .peticion
+                    //-     mat-card.componente([ngStyle]="borde")
+                    //-         p marcas
+                    //-             span(*ngFor="let marca of peticion.Marcas") {{marca}}
+                    //-         p colores
+                    //-             span(*ngFor="let marca of peticion.Colores") {{marca}}
+                    //-         p Precio
+                    //-             span {{peticion.Precio[0]}}
+                    //-             span {{peticion.Precio[1]}}
+                    //-         p Categoria
+                    //-             //- span {{peticion?.Categoria?.nombre}}
+                    //-         p Opciones
+                    //-             span(*ngFor="let opcion of peticion.Opciones") {{opcion}}
+                    //- .boton
+                    //-     button(mat-button, (click)="ocultar()")
+                    //-         mat-icon keyboard_tab
+                    precio(
+                        (pasarPrecio)="cambiarPrecio($event)")
+                    modulos(
+                        [nuevaCategoria]="pasarCategoria",
+                        (cambiar)="cambiarOpciones()",
+                        [modulos]="modulos",
+                        [nuevoquery]="pasarQuery")    
+                section(style="min-height: 100vh ")
+                    categorias(
+                        [categorias]="categorias",
+                        (cambiar)="cambioCategoria($event)",
+                        (eliminacion)="eliminarCategoria($event)",
+                        [nuevoquery]="pasarQuery")
+                    productos([nuevaPeticion]="pasarPeticion")

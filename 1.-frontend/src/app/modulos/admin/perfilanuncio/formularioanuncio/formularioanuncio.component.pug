@@ -1,0 +1,15 @@
+
+mat-card.componente
+    h1 {{ anuncio?.nombre }}
+    form(class="example-form")
+            mat-form-field(appearance="outline")
+                input(matInput, placeholder="Busca un link", [(ngModel)]="anuncio.link",  name="link")
+            mat-form-field(appearance="outline")
+                input(matInput, placeholder="Busca un tipo", [(ngModel)]="anuncio.tipo",  name="tipo")
+            mat-form-field(appearance="outline")
+                input(matInput, placeholder="Busca un posicion", [(ngModel)]="anuncio.posicion",  name="posicion")
+            mat-form-field(appearance="outline")
+                input(matInput, placeholder="Busca un nombre", [(ngModel)]="anuncio.nombre",  name="nombre")
+            mat-form-field(appearance="outline")
+                input(matInput, placeholder="Busca un status", [(ngModel)]="anuncio.status",  name="status")
+    button(mat-raised-button (click)="aceptar()") Aceptar

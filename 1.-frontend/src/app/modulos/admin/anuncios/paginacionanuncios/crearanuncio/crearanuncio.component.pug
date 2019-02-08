@@ -1,0 +1,5 @@
+form
+    mat-form-field(appearance="outline")
+        mat-label nombre
+        input(matInput, [(ngModel)]="nombre", name="nombre")
+    button(mat-stroked-button, (click)="aceptar()") Crear promoción

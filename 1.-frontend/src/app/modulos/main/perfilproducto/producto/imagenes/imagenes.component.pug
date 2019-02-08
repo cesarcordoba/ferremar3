@@ -1,0 +1,11 @@
+
+
+.imagenes(*ngIf="slides.length > 0")
+    ngx-slick.carousel#slider( #slickModal="slick-modal", [config]="vertical" ,(afterChange)="afterChange($event)")
+        .slide(ngxSlickItem *ngFor="let slide of slides ")
+            img([src]="slide.link")    
+                    
+    ngx-slick.carousel#central( #slickModal="slick-modal" ,[config]="horizontal" ,(afterChange)="afterChange($event)")
+        .slide(ngxSlickItem ,*ngFor="let slide of slides ")
+            .imagen
+                img([src]="slide.link")    

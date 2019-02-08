@@ -1,0 +1,29 @@
+
+mat-progress-bar(mode="indeterminate", *ngIf="procesando")
+mat-table(mat-table, [dataSource]="productos.items", class="mat-elevation-z8")
+    ng-container(matColumnDef="nombre")
+        mat-header-cell( *matHeaderCellDef) Nombre
+        mat-cell( *matCellDef="let element")
+            producto([producto]="element")
+    ng-container(matColumnDef="versiones")
+        mat-header-cell( *matHeaderCellDef) Versiones
+        mat-cell( *matCellDef="let element")
+            versiones([producto]="element")
+    ng-container(matColumnDef="detalle")
+        mat-header-cell( *matHeaderCellDef) Detalle
+        mat-cell( *matCellDef="let element")
+            mat-button-toggle-group
+                mat-button-toggle((click)="abrir(element)")
+                    mat-icon info
+                mat-button-toggle((click)="ir(element)")
+                    mat-icon edit
+            //- button.detalle(mat-button (click)="abrir(element)")
+            //-     mat-icon info
+            //- button.detalle(mat-button (click)="ir(element)")
+            //-     mat-icon edit
+    mat-header-row( *matHeaderRowDef="['nombre', 'versiones', 'detalle']")
+    mat-row(*matRowDef="let row; columns: ['nombre', 'versiones', 'detalle'];")
+mat-paginator([length]="productos.paginas * 18", [pageSize]="18", [pageSizeOptions]="[18]", (page)="cambioPagina($event)")
+
+    
+    

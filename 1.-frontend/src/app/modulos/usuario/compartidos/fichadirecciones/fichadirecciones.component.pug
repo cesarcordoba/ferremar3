@@ -1,0 +1,80 @@
+.registro
+    .formulario
+        .botones
+            .sucursal
+                mat-form-field(appearance="outline")
+                    mat-label Selecciona la sucursal más cercana
+                    mat-select(placeholder="Favorite animal",  [(value)]="sucursalcercana", required)
+                        //- mat-option --
+                        mat-option(*ngFor="let sucursal of sucursales", [value]="sucursal") {{sucursal.nombre}}
+            .localizar
+                button(mat-raised-button, (click)="obtenerUbicacion()") 
+                    span(*ngIf="!obteniendolocalizacion") Usar mi ubicación  
+                    mat-icon(*ngIf="!obteniendolocalizacion") location_searching
+                    mat-spinner([diameter]="20", *ngIf="obteniendolocalizacion")
+        .nuevadireccion(*ngIf="statuscrearubicacion")
+            mat-card
+                .tarjeta
+                    form(class="example-form", [formGroup]='autocomplete')
+                        mat-form-field(appearance="outline")
+                            input(matInput, placeholder="Busca la dirección completa", [matAutocomplete]="auto", formControlName='input', (ngModelChange)="cambio()")
+
+                    mat-autocomplete(#auto="matAutocomplete", [displayWith]="displayFn")
+                        mat-option(*ngIf="isLoading", class="is-loading")
+                            mat-spinner(diameter="50")
+                        ng-container(*ngIf="!isLoading")
+                            mat-option(*ngFor="let item of itemsfiltrados", [value]="item")
+                                span {{ item.description }} 
+
+                    form([formGroup]='nuevadireccion')
+                        .linea
+                            mat-form-field(appearance="outline")
+                                mat-label Numero
+                                input(matInput, placeholder="Escribe el nombre", formControlName='numero')
+                                
+                            mat-form-field(appearance="outline")
+                                mat-label Calle
+                                input(matInput, placeholder="Escribe el nombre", formControlName='calle')
+                        .linea
+                            mat-form-field(appearance="outline")
+                                mat-label Estado
+                                input(matInput, placeholder="Escribe el nombre", formControlName='estado')
+                                
+                            mat-form-field(appearance="outline")
+                                mat-label Ciudad
+                                input(matInput, placeholder="Escribe el nombre", formControlName='ciudad')
+                        .linea
+                            mat-form-field(appearance="outline")
+                                mat-label Colonia
+                                input(matInput, placeholder="Escribe el nombre", formControlName='colonia')
+                                
+                            mat-form-field(appearance="outline")
+                                mat-label Codigopostal
+                                input(matInput, placeholder="Escribe el nombre", formControlName='codigopostal')
+                mat-divider
+                .botones
+                    button(mat-button (click)="crearDireccion()") Aceptar
+        .gridregistro.direcciones(*ngIf="!statuscrearubicacion")
+            .item
+                .agregar
+                    button(mat-button (click)="statuscrearubicacion = !statuscrearubicacion")
+                        .central
+                            mat-icon add_circle
+                            span Añadir dirección
+                
+            .item(*ngFor="let direccion of direcciones")
+                mat-card
+                    .tarjeta
+                        mat-list
+                            mat-list-item {{direccion.numero}}
+                            mat-list-item {{direccion.calle}}
+                            mat-list-item {{direccion.colonia}}
+                            mat-list-item {{direccion.ciudad}}
+                            mat-list-item {{direccion.estado}}
+                            mat-list-item {{direccion.codigopostal}}
+                    mat-divider
+                    .botones
+                        button(mat-button, (click)="asignarPrincipal(direccion.id)", [style.background-color] = "direccion.principal === 1 ? 'cyan' : 'white'") principal
+                        button(mat-button (click)="eliminarDireccion(direccion.id)") Eliminar
+    .mapa
+        div(#googleMap style="width:100%;height:100%;")

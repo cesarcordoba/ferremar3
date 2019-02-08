@@ -1,0 +1,58 @@
+
+@import  '../../../../../../defaults.styl'
+
+.slider-promociones
+	.slider
+		height 400px !important
+		display flex
+		align-items center
+		.slick-dotted.slick-slider
+			margin-bottom inherit !important
+		.carousel
+			height 400px
+			width 100%
+			.slick-list
+				height 400px
+				.slick-track
+					height 400px
+					.slide
+						display flex
+						justify-content center
+						align-items center
+						&:focus
+							outline 0px
+						.promo-content
+							width 520px
+							.imagen-promo
+								background-color gray
+								height 200px
+							.informacion-promo
+								display flex
+								flex-direction row
+								justify-content space-between
+								align-items center
+								.descripcion
+									height 80px
+									width 1445px
+									display flex
+									justify-content center
+									align-items center
+									border 0.5px solid gray
+									margin-top 2vh
+									margin-right 5px
+									.texto
+										width 75%
+										margin-right 60px
+										p
+											font-size 12px
+											text-align justify
+								.cuadrado
+									background-color naranja
+									width 310px
+									height 80px
+									margin-top 2vh
+									margin-left 5px
+			.slick-next
+				display none
+			.slick-prev
+				display none

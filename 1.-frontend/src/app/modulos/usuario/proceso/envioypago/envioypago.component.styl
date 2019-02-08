@@ -1,0 +1,57 @@
+
+@import  '../../../../../defaults.styl'
+
+.sucursal, .tarjeta, .direccion, .pago
+    border 1px solid rgba(0, 0, 0, 0.12)
+    border-radius 4px
+    margin 5px
+    padding 10px
+
+.container
+    width 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    .content
+        margin-top 60px
+        width 95%
+        display: flex
+        .informacion
+            display: flex
+            flex-direction:column
+            flex 4
+            .sucursal
+                margin-bottom 20px
+                h4
+                    margin 0px
+            .tarjetasydireccion
+                display: flex
+                width 100%
+                .tarjeta, .direccion
+                    flex 1
+                    .titulo
+                        display: flex
+                        margin-bottom 10px
+                        h4
+                            margin 0px
+                        button
+                            width 20px
+                            padding 0px
+                            margin 0 5px
+                            background-color rojo1
+                            color white
+                            height 18px
+                            line-height: 18px
+                            font-size 12px
+
+        .pago
+            flex 1
+            display flex
+            justify-content flex-start
+            align-items center
+            flex-direction column
+            h4
+                text-aling center
+            button
+                background-color rojo1
+                color white

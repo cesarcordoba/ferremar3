@@ -1,0 +1,25 @@
+
+.promocion
+    .content
+        //- h1 {{promo?.nombre}}
+        formulariopromocion([pasarPromo]="pasarPromo")
+        mat-accordion
+            mat-expansion-panel
+                mat-expansion-panel-header
+                    mat-panel-title Todos los productos de esta promoción
+                    mat-panel-description
+                paginacionproductospromos([pasarPromo]="pasarPromo")
+            mat-expansion-panel
+                mat-expansion-panel-header
+                    mat-panel-title Descuentos
+                    mat-panel-description
+                paginaciondescuentos([pasarPromo]="pasarPromo")
+            mat-expansion-panel
+                mat-expansion-panel-header
+                    mat-panel-title Ofertas
+                    mat-panel-description
+                paginacionoferta([pasarPromo]="pasarPromo")
+
+
+//- buscarproducto
+//- buscarversion

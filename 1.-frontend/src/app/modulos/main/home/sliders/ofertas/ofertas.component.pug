@@ -1,0 +1,10 @@
+
+.ofertas(*ngIf="ofertas.items")
+    mat-toolbar
+        h4 Ofertas gigantes
+        .lineas
+            .linea(*ngFor="let n of [1,2,3,4]")
+    .slider(*ngIf="ofertas")
+        ngx-slick.carousel(#slickModal="slick-modal",   [config]="slideConfig",  (afterChange)="afterChange($event)"  )
+            .slide(ngxSlickItem,  *ngFor="let oferta of ofertas.items ; index as i ")
+                fichaproducto([producto]="oferta")

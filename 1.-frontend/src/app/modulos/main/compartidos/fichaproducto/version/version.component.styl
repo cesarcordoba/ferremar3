@@ -1,0 +1,97 @@
+
+@import  '../../../../../../defaults.styl'
+
+
+.version
+    position relative
+    display flex
+    flex-direction row
+    margin 3px 0
+    min-height 30px
+    overflow hidden
+    cursor pointer
+    .accion
+        width 100%
+        height 100%
+        left -100%
+        position absolute
+        z-index 20
+        .boton
+            cursor pointer
+            display flex
+            button
+                color white
+                margin 0px
+                padding 0px
+                line-height: 30px
+                min-height 20px
+                height 100%
+                width 100%
+                border-radius: 0px
+                max-width: none;
+                max-height: none
+                &.detalle
+                    background negro 
+                &.agregar
+                    background naranja
+                span
+                    font-size 9px
+    .version-content
+        display flex
+        flex-direction column
+        width 100%
+        padding-left 10px
+        .detalles
+            display flex
+            width 100%
+            flex-direction row
+            .md-button
+                margin 0px
+                padding 0px
+                line-height 20px
+                height 20px
+                margin 0 2px
+            .opciones
+                button.opcion
+                    font-size 12px
+                    font-family Calibri
+                    font-weight 800
+                    min-width 15px
+                    min-height 15px
+                    line-height inherit
+                    height 15px
+                    border-radius 0px
+
+
+        .existencia
+            width 100%
+            display flex
+            strong
+                margin-left 2px
+                font-size 9px
+            span
+                font-size 7px
+                line-height 12px
+    .precio-container
+        padding-right 10px
+        width 100%
+        display flex
+        justify-content flex-end
+        font-family Bold !important
+        &>div
+            width 100%
+            text-align end
+        &.oferta
+            .precio
+                text-decoration line-through
+                font-size 11px
+                color azul1
+            .descuento
+                font-size 15px
+                color rojo1
+        &.normal
+            font-family Bold !important
+            .precio
+                color naranja
+            .descuento
+                display none

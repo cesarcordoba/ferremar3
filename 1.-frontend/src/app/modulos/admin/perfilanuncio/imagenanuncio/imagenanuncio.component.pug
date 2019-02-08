@@ -1,0 +1,43 @@
+
+mat-card.portadaproducto
+	h2 Portada del Producto
+	mat-form-field(class="input-layout")
+		mat-select((selectionChange)="cambiarEscala($event)")
+			mat-option([value]="'cuadrado'") Cuadrado
+			mat-option([value]="'horizontal'") Horizontal
+			mat-option([value]="'vertical'") Vertical
+	form([formGroup]='formulario')
+		mat-form-field(appearance="outline")
+			mat-label Width
+			input(type="number", matInput, placeholder="Busca un nombre", formControlName='width')
+		mat-form-field(appearance="outline")
+			mat-label Height
+			input(type="number", matInput, placeholder="Busca un nombre", formControlName='height')
+		mat-form-field(appearance="outline")
+			mat-label Escala W
+			input(type="number", matInput, placeholder="Busca un nombre", formControlName='escala_w')
+		mat-form-field(appearance="outline")
+			mat-label Escala H
+			input(type="number", matInput, placeholder="Busca un nombre", formControlName='escala_h')
+		button(mat-stroked-button, (click)="aceptar()") Aceptar
+	mat-chip-list
+		mat-chip(*ngFor="let chip of configuracion.escalas") {{ chip.width }} - {{ chip.height }}
+	.inputs(*ngIf="anuncios.length<=0")
+		dropify(
+			[(ngModel)]="file",
+			[isBase64]="true",
+			
+			[croppieWith]="configuracion.escalas[0].width",
+			[croppieHeight]="configuracion.escalas[0].height")
+		button(mat-icon-button, (click)="guardar()", *ngIf="carga==false")
+			mat-icon save
+		mat-spinner(*ngIf="carga==true")
+	.imagen(*ngIf="anuncios.length>0")
+		.portada(*ngFor="let item of anuncios")
+			//- .imagen(*ngIf="item.tamano.includes(tamano_x_defecto)")
+			.imagen
+				img( [src]="item.url")
+		button(mat-icon-button, color="warn", (click)="borrar()")
+			mat-icon delete
+		mat-spinner(*ngIf="carga==true")
+	img([src]="file")

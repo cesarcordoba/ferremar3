@@ -1,0 +1,39 @@
+div(class="contenedor", [class.isMobile]="mobileQuery.matches")
+    header
+        mat-toolbar(class="nav-toolbar mat-elevation-z8")
+            button(mat-icon-button, (click)="snav.toggle()", matTooltip="Abrir menu")
+                mat-icon menu
+            button.logo(mat-button (click)="ir('')")
+                .logo-content
+                    img(src="assets/images/No_Foto.png")
+                    h1 El gigante de los azulejos
+        
+            .links
+                //- div(*ngFor="let link of navLinks" )
+                //-     button(mat-button, [routerLink]="link.path" ) {{link.label}}
+                div(*ngIf="usuario === null")
+                    button(mat-button, (click)="login()") 
+                        mat-icon account_circle
+                bolsa
+                div(*ngIf="usuario !== null")
+                    button.avatarbutton(mat-button, [mat-menu-trigger-for]="menuUser")
+                        .avatar-content
+                            .avatar(*ngIf="usuario?.avatares?.length > 0", [ngStyle]="{ 'background-image' :' url(' +  usuario?.avatares[0]?.link +  ')' }")
+                            span  Hola {{usuario?.nombre}}
+                mat-menu(#menuUser="matMenu")
+                    a(mat-menu-item, [routerLink]="['/usuario/perfil']")
+                        mat-icon account_box
+                        span {{ usuario?.nombre }}
+                    a(mat-menu-item, (click)="salir()")
+                        mat-icon exit_to_app
+                        span Cerrar Sesión
+        menu
+    mat-sidenav-container(class="sidenav-container", [style.marginTop.px]="mobileQuery.matches ? 65 : 0")
+        mat-sidenav(#snav, [mode]="mobileQuery.matches ? 'over' : 'side'", [fixedInViewport]="mobileQuery.matches", fixedTopGap="65", [opened]="mobileQuery.matches? false : true")
+            mat-nav-list
+                mat-list-item(*ngFor="let link of navLinks", [routerLink]="link.path", [routerLinkActive]="['active-nav']", (click)="snav.toggle()" )
+                    mat-icon {{link.icon}}
+                    p {{link.label}}
+        mat-sidenav-content
+            div.contenido
+                router-outlet

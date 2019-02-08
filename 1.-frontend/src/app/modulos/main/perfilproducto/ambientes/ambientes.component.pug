@@ -1,0 +1,6 @@
+
+
+.ambientes
+    ngx-slick.carousel#central( #slickModal="slick-modal", [config]="horizontal",(afterChange)="afterChange($event)")
+        .slide(ngxSlickItem, *ngFor="let ambiente of ambientes ")
+            ambiente([ambiente]="ambiente")

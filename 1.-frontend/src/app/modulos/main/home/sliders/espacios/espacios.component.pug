@@ -1,0 +1,13 @@
+.espacios
+
+    mat-toolbar
+        h4 Espacios
+        .lineas
+            .linea(*ngFor="let n of [1,2,3,4]")
+    .slider(*ngIf="ambientes")
+        ngx-slick.carousel(#slickModal="slick-modal",   [config]="slideConfig",  (afterChange)="afterChange($event)"  )
+            .slide(ngxSlickItem,  *ngFor="let ambiente of ambientes.items ; index as i ")
+                espacio([ambiente]="ambiente")
+
+
+// mat-paginator([length]="ambientes.items.length" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]")

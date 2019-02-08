@@ -1,0 +1,90 @@
+
+@import  '../../../../../defaults.styl'
+
+.pedidos
+    margin-top 100px
+    .pedido
+        @extend .borde
+        padding 0px
+        overflow hidden
+        margin 30px 0
+        .encabezado
+            background-color: gris
+            display: flex
+            height 80px
+            align-items: center
+            .fecha, .total, .info
+                display: flex
+                flex-direction:  column
+            .fecha, .total
+                min-width 150px
+                strong, span
+                    text-align: center
+                    color white
+                    font-family: arial
+                    margin 3px 0
+            .info
+                width 100%
+                .proceso
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    font-size: 11px
+                    text-align: center
+                    color white
+                    flex-direction: column;
+                    font-family: arial
+                    .procesos
+                        width 200px
+                        background-color white
+                        display: flex
+                        justify-content: center
+                        flex-direction: column
+                        border-radius: 40px
+                        @extend .borde
+                        margin 0px
+                        padding 0px 10px
+                    span
+                        margin 3px 0
+
+
+        .contenido
+            display flex
+            .transacciones
+                width 100%
+                .info
+                    display: flex
+                    flex-direction: column;
+                    .titulo
+                        display: flex
+                        align-items: center
+                        .cantidad
+                            font-family Bold !important
+                            margin 5px
+                            padding 5px 10px
+                            font-size 15px
+                            color white
+                            background-color gris
+                            border-radius 40px
+
+                    .precio
+                        font-family Bold !important
+                        color rojo1
+                        margin 3px 0
+            .acciones
+                flex 0 0 300px
+                display flex
+                justify-content center
+                align-items center
+                .cuadro
+                    width 200px
+                    display flex
+                    justify-content center
+                    align-items center
+                    @extend .borde
+                    button
+                        background-color rojo1
+                        color white
+
+.mat-column-imagen
+    flex: 0 0 100px

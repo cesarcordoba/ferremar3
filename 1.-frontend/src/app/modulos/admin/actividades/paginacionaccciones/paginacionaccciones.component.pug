@@ -1,0 +1,16 @@
+
+
+mat-card
+    mat-table(mat-table, [dataSource]="acciones.items", class="mat-elevation-z8")
+        ng-container(matColumnDef="nombre")
+            mat-header-cell( *matHeaderCellDef) Nombre
+            mat-cell( *matCellDef="let element") {{element.usuario?.nombre}}
+        ng-container(matColumnDef="contenido")
+            mat-header-cell( *matHeaderCellDef) Nombre
+            mat-cell( *matCellDef="let element") {{element.contenido}}
+        ng-container(matColumnDef="seccion")
+            mat-header-cell( *matHeaderCellDef) Nombre
+            mat-cell( *matCellDef="let element") {{element.seccion }}
+        mat-header-row( *matHeaderRowDef="['nombre', 'contenido', 'seccion']")
+        mat-row(*matRowDef="let row; columns: ['nombre', 'contenido', 'seccion'];")
+    mat-paginator([length]="acciones.paginas * filtro.limite", [pageSize]="10", [pageSizeOptions]="[5, 10, 25, 100]", (page)="cambioPagina($event)")

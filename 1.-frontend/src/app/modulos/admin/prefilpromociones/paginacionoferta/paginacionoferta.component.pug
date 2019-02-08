@@ -1,0 +1,36 @@
+//- button(mat-button, (click)="abrirversiones()") AbrirVersiones
+//- button(mat-button, (click)="abrirproductos()") AbrirProductos
+//- button(mat-button, (click)="abrircantidad()") Abrir Cantidad
+
+button(mat-button, (click)="crearOferta()") Crear Oferta
+mat-table(mat-table, [dataSource]="ofertas.items", class="mat-elevation-z8")
+    ng-container(matColumnDef="entrantes")
+        mat-header-cell( *matHeaderCellDef) Entrantes
+        mat-cell( *matCellDef="let element")
+            .entrantes
+                button(mat-button, (click)="crear(element, 'entrantes')") Agregar Entrante
+                mat-list
+                    mat-list-item(*ngFor="let entrante of element.entrantes")
+                        button(mat-button, (click)="eliminar(element, entrante, 'entrantes')")
+                            mat-icon clear
+                        strong {{entrante.Entrante.cantidad}} -
+                        p {{entrante.nombre}} 
+    ng-container(matColumnDef="salientes")
+        mat-header-cell( *matHeaderCellDef) Salientes
+        mat-cell( *matCellDef="let element")
+            .salientes
+                button(mat-button, (click)="crear(element, 'salientes')") Agregar Saliente
+                mat-list
+                    mat-list-item(*ngFor="let saliente of element.salientes")
+                        button(mat-button, (click)="eliminar(element, saliente, 'salientes')")
+                            mat-icon clear
+                        strong {{saliente.Saliente.cantidad}} -
+                        p {{saliente.nombre}}
+    ng-container(matColumnDef="accion")
+        mat-header-cell( *matHeaderCellDef) Accion
+        mat-cell( *matCellDef="let element")
+            button(mat-button, (click)="eliminarOferta(element)")
+                mat-icon clear
+    mat-header-row( *matHeaderRowDef="['entrantes', 'salientes', 'accion']")
+    mat-row(*matRowDef="let row; columns: [ 'entrantes', 'salientes', 'accion'];")
+mat-paginator([length]="ofertas.paginas * filtro.limite", [pageSize]="10", [pageSizeOptions]="[5, 10, 25, 100]", (page)="cambioPagina($event)")

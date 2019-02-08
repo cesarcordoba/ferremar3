@@ -1,0 +1,31 @@
+
+@import  '../../../../../defaults.styl'
+
+.ficha
+    width 200px !important
+    padding 0 5px
+    .imagen
+        width 200px
+        height 200px
+        position relative
+        img
+            width 200px
+            height auto
+    .categoria
+    	position absolute
+    	bottom 0px
+    	background-color rgba(255, 255 , 255, .5)
+    	&:after
+    		height 0px
+    		width 0px
+    		border-right 20px solid transparent
+    		border-top 0px solid transparent
+    		border-left 0px solid transparent
+    		border-bottom 28px solid rgba(255, 255 , 255, .5)
+    		content ''
+    		display block
+    		position absolute
+    		top 0px
+    		right -20px
+    	p
+    		margin 5px

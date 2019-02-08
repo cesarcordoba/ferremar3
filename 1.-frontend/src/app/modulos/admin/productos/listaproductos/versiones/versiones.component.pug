@@ -1,0 +1,53 @@
+//- 
+//- mat-card.componente
+//-     h1 versiones
+//-     p minilista
+//- 
+//- mat-table(matSort, (matSortChange)="sortData($event)")
+//-     tr
+//-         th(mat-sort-header="name")
+//-         th(mat-sort-header="detalle")
+//- 
+//-     tr(*ngFor="let dessert of versiones")
+//-         td
+//-             span {{dessert}}
+//-         td
+//-             p hola
+
+mat-progress-bar(mode="indeterminate", *ngIf="procesando")
+table(matSort)
+    tr
+        th(mat-sort-header='status') Status
+        th(mat-sort-header='nombre') Nombre
+        //- th(mat-sort-header='precioactual') Precio actual
+        th(mat-sort-header='margenes') margenes
+        th(mat-sort-header='precios') Precios
+        th(mat-sort-header='preciocalculado') precios calculado
+        th(mat-sort-header='existencia') Existencia
+        th(mat-sort-header='Accion') Acción
+    tr(*ngFor='let version of versiones')
+        td
+            mat-icon([ngStyle]="{ color : version.status === 1 ? 'rgb(76, 175, 80)' : 'rgb(244, 67, 54)'  }") lens
+        td
+            .nombre
+                strong {{version.id}} - {{version.nombre}}
+                span {{version.linea}}
+        //- td {{version.precio | currency }}
+        td
+            mat-chip-list
+                mat-chip(*ngFor="let margen of version.margenes") {{margen.cantidad}} %
+        td
+            mat-chip-list
+                mat-chip(*ngFor="let precio of version.precios") {{precio.cantidad | currency }}
+        td
+            span {{ version.precio | currency }}
+            //- span([innerHtml]="calcular(version.precios) | currency")
+        td
+            span {{ version.existencia }}
+        td
+            mat-button-toggle-group
+                mat-button-toggle((click)="abrir(version)")
+                    mat-icon info
+                mat-button-toggle
+                    mat-icon edit
+        

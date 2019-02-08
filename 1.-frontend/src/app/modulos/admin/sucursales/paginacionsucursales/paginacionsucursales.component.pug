@@ -1,0 +1,15 @@
+
+mat-card.componente
+    mat-toolbar
+        mat-toolbar-row(style="justify-content : space-between")
+            .titulo
+                h3 paginacionsucursales
+                strong Paginación
+
+    mat-table(mat-table, [dataSource]="sucursales.items", class="mat-elevation-z8")
+        ng-container(matColumnDef="nombre")
+            mat-header-cell( *matHeaderCellDef) Nombre
+            mat-cell( *matCellDef="let element") {{element.nombre}}
+        mat-header-row( *matHeaderRowDef="['nombre']")
+        mat-row(*matRowDef="let row; columns: ['nombre'];")
+    mat-paginator([length]="sucursales.paginas * filtro.limite", [pageSize]="10", [pageSizeOptions]="[5, 10, 25, 100]", (page)="cambioPagina($event)")

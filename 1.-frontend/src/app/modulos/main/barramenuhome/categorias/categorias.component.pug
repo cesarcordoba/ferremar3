@@ -1,0 +1,8 @@
+
+
+.items
+    .item(*ngFor="let categoria of categorias", [ngClass]="{ 'visto' :   categoria.status === true , 'oculto' : categoria.status === false }")
+        categoria(
+            [categoria]="categoria",
+            (cambio)="cambioCategoria($event)",
+            (cerrar)="cerrar($event)")

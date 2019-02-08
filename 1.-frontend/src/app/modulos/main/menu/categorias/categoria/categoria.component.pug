@@ -1,0 +1,5 @@
+span([ngClass]="{ 'principal' : categoria.nivel === 1, 'subcategoria' : categoria.nivel === 2, 'subsubcategoria' : categoria.nivel === 3, 'subsubsubcategoria' : categoria.nivel === 4 }")
+    button(mat-button *ngIf="categoria.cantidad", (click)="enter(1)" aria-label )
+        mat-icon(*ngIf="open") arrow_drop_up
+        mat-icon(*ngIf="!open") arrow_drop_down
+    button(mat-button, [ngClass]="categoria?.cantidad > 0 ? 'panel' :  'normal'", aria-label, (click)="ir()") {{categoria?.nombre}} 

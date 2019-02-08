@@ -1,0 +1,29 @@
+.encabezado
+    span Tienes 
+    strong {{favoritos.length}} articulos 
+    span en tu carrito
+mat-list
+    mat-list-item(*ngFor="let favorito of favoritos")
+        .imagen(*ngIf="favorito?.producto?.portadas?.length > 0")
+            img([src]="favorito?.producto?.portadas[0].link")
+            button.eliminar(mat-mini-fab, (click)="eliminar()")
+                mat-icon clear
+        .info
+            .texto
+                span {{favorito?.producto?.nombre}}
+            .descripcion
+            .precio
+                //- span {{favorito?.producto?.nombre}}
+                strong  {{ favorito.Favorito.cantidad }} x {{ favorito?.precioactual | currency }}
+                strong  {{ favorito.total | currency}}
+                //- mat-form-field
+                //-     mat-label cantidad
+            //-     input(matInput, [(ngModel)]="favorito.Favorito.cantidad")
+            //- 
+        //- span {{favorito?.precio}}
+mat-divider
+.total
+    strong Total
+    h3 {{total | currency}}
+.boton 
+    button(mat-stroked-button, (click)="crearOrden()") crear orden

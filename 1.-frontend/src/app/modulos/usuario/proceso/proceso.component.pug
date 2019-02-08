@@ -1,0 +1,23 @@
+
+section
+	.container
+		.content
+			//- mat-card.componente([ngStyle]="borde")
+			//- 	mat-toolbar
+			//- 		mat-toolbar-row(style="justify-content : space-between")
+			//- 			.titulo
+			//- 				h3 proceso
+			//- 				strong Vista
+				
+			mat-horizontal-stepper(#stepper)
+				mat-step([stepControl]="primeroFormGroup")
+					ng-template(matStepLabel) Confirmación de productos
+					confirmacion
+					.boton
+						button(mat-button, mat-stroked-button, matStepperNext) Siguiente paso
+				
+				mat-step([stepControl]="primeroFormGroup")
+					ng-template(matStepLabel) Pago y envio
+					envioypago
+					//- .boton
+					//- 	button(mat-button, mat-stroked-button, matStepperNext) Saltar este paso

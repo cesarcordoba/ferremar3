@@ -1,0 +1,12 @@
+
+.precio
+    section
+        mat-accordion
+            mat-expansion-panel
+                mat-expansion-panel-header
+                    mat-panel-title Precio
+                    mat-panel-description
+                .precio
+                    range-slider(min="0", max="10000", (rangeChange)="cambioPrecio($event)", minValue="0", maxValue="10000", step="100")
+                    button(mat-button, (click)="aceptar()")
+                        mat-icon keyboard_arrow_right

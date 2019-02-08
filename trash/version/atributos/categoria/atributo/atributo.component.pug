@@ -1,0 +1,9 @@
+
+mat-card.componente
+    mat-form-field
+        mat-select(placeholder=" {{ atributo.nombre }}", (ngModelChange)="cambio()",  [(ngModel)]="opcion")
+            mat-option(*ngFor="let opcion of opciones", [value]="opcion") {{opcion.nombre}}
+    button(mat-stroked-button (click)="aceptar()")
+        mat-icon done
+    button(mat-stroked-button (click)="eliminar()")
+        mat-icon clear

@@ -1,0 +1,56 @@
+
+@import  '../../../../../defaults.styl'
+
+.encabezado
+    font-family: Poopins
+    span
+        font-size 13px
+    strong
+        font-size 16px
+
+mat-list
+    mat-list-item
+        height 80px !important
+        .eliminar
+            position: absolute;
+        .imagen, img
+            height 80px
+            width 80px
+        .imagen
+            margin-left: 5px
+            position: relative;
+            button
+                top -15px
+                left -15px
+                background-color rojo1
+                transform scale(.5)
+                .mat-button-wrapper
+                    padding 0px !important
+        .info
+            display: flex
+            flex-direction: column;
+            width 100%
+            .texto
+                display: flex;
+                flex-direction: column
+            .descripcion, .precio
+                display: flex
+                justify-content: space-between;
+
+.total
+    width 100%
+    display flex
+    justify-content flex-end
+    align-items center
+    strong
+        margin-right 10px
+        font-size 14px
+        font-family Poppins
+        color rojo1
+.boton
+    width 100%
+    display flex
+    justify-content flex-end
+
+.mat-mini-fab .mat-button-wrapper
+    padding 0px !important

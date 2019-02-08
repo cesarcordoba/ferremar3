@@ -1,0 +1,16 @@
+
+.margin
+    form([formGroup]='formulario')
+        mat-form-field(appearance="outline")
+            mat-label Gama
+            input(matInput, placeholder="Busca un autogama   ", [matAutocomplete]="auto", formControlName='input')
+
+    mat-autocomplete(#auto="matAutocomplete", [displayWith]="displayFn")
+        mat-option(*ngIf="isLoading", class="is-loading")
+            mat-spinner(diameter="50")
+        ng-container(*ngIf="!isLoading")
+            mat-option(*ngFor="let item of itemsfiltrados", [value]="item")
+                span {{ item.nombre }} 
+.productos
+    button.producto(mat-button, matTooltip="{{producto.nombre}}", *ngFor="let producto of productos")
+        img([src]="obtenerImagen(producto?.portadas)")

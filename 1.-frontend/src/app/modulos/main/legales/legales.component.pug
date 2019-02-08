@@ -1,0 +1,12 @@
+
+
+.container
+    .content
+        h1 Legales
+        .contenido
+            mat-nav-list
+                mat-list-item([routerLink]="['/legales/terminos']") Termino y condiciones 
+                mat-list-item([routerLink]="['/legales/privacidad']") Aviso de privacidad
+                mat-list-item([routerLink]="['/legales/devoluciones']") Politica de devoluciones
+                mat-list-item([routerLink]="['/legales/condiciones']") Condiciones de envios
+            router-outlet

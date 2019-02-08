@@ -1,0 +1,12 @@
+
+
+form(class="example-form", [formGroup]='formulario')
+    mat-form-field(appearance="outline")
+        input(matInput, placeholder="Busca un autoproducto", [matAutocomplete]="auto", formControlName='input', (ngModelChange)="cambio($event)")
+
+mat-autocomplete(#auto="matAutocomplete", [displayWith]="displayFn")
+    mat-option(*ngIf="isLoading", class="is-loading")
+        mat-spinner(diameter="50")
+    ng-container(*ngIf="!isLoading")
+        mat-option(*ngFor="let item of itemsfiltrados", [value]="item")
+            span {{ item.nombre }} 

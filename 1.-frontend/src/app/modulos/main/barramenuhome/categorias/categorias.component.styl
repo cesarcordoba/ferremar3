@@ -1,0 +1,25 @@
+
+@import  '../../../../../defaults.styl'
+
+
+.items
+	padding 10px
+	display grid
+	// grid-auto-flow row
+	grid-auto-flow column
+	grid-gap 5px
+	grid-template-rows repeat(10, 1fr)
+	grid-template-columns repeat(3, 1fr)
+	@media mobile
+		grid-template-columns repeat(2, 1fr)
+		grid-template-rows repeat(20, 1fr)
+	.item
+		grid-row span 1
+		max-height 20px
+		overflow hidden
+
+
+.oculto
+	display: none !important
+.visto
+	display: block !important

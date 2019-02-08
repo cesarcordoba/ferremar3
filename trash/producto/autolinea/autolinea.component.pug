@@ -1,0 +1,12 @@
+mat-card.componente
+    .autocomplete
+        form(class="example-form", [formGroup]='formulario')
+            mat-form-field
+                input(matInput, placeholder="Busca un autolinea   ", [matAutocomplete]="auto", formControlName='input', (ngModelChange)="cambio()")
+
+        mat-autocomplete(#auto="matAutocomplete", [displayWith]="displayFn")
+            mat-option(*ngIf="isLoading", class="is-loading")
+                mat-spinner(diameter="50")
+            ng-container(*ngIf="!isLoading")
+                mat-option(*ngFor="let item of itemsfiltrados", [value]="item")
+                    span {{ item.nombre }} 

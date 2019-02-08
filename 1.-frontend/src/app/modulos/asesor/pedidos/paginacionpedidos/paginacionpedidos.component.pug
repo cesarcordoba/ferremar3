@@ -1,0 +1,31 @@
+
+mat-table(mat-table, [dataSource]="ordenes.items", class="mat-elevation-z8")
+    
+    ng-container(matColumnDef="status")
+        mat-header-cell( *matHeaderCellDef) Status
+        mat-cell( *matCellDef="let element")
+            mat-slider([disabled]="true", [max]="4", [min]="0",  [(ngModel)]="element.status")
+                
+
+    ng-container(matColumnDef="usuario")
+        mat-header-cell( *matHeaderCellDef) Nombre
+        mat-cell( *matCellDef="let element") {{element.usuario?.nombre}}
+        
+    ng-container(matColumnDef="total")
+        mat-header-cell( *matHeaderCellDef) Total
+        mat-cell( *matCellDef="let element") {{element.total | currency }}
+        
+    ng-container(matColumnDef="transacciones")
+        mat-header-cell( *matHeaderCellDef) Transacciones
+        mat-cell( *matCellDef="let element") {{element.transacciones?.length}}
+            
+        
+    ng-container(matColumnDef="accion")
+        mat-header-cell( *matHeaderCellDef) Accion
+        mat-cell( *matCellDef="let element")
+            button(mat-button, (click)="ir(element)")
+                mat-icon edit
+                
+    mat-header-row( *matHeaderRowDef="['status',  'usuario',  'total', 'transacciones',  'accion']")
+    mat-row(*matRowDef="let row; columns: ['status', 'usuario', 'total',  'transacciones',  'accion'];")
+mat-paginator([length]="ordenes.paginas * filtro.limite", [pageSize]="10", [pageSizeOptions]="[5, 10, 25, 100]", (page)="cambioPagina($event)")

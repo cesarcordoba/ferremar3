@@ -1,0 +1,12 @@
+
+form([formGroup]="formulario", (ngSubmit)="aceptar()")
+    mat-form-field(appearance="outline")
+        mat-label Nombre
+        input(matInput, maxlength="256", formControlName="nombre", placeholder="nombre")
+
+    mat-form-field(appearance="outline")
+        mat-label Cantidad
+        input(matInput, maxlength="256", formControlName="cantidad", placeholder="cantidad")
+    
+    button(mat-stroked-button, (click)="aceptar()") Aceptar
+    button(mat-stroked-button, (click)="cancelar()") Cancelar

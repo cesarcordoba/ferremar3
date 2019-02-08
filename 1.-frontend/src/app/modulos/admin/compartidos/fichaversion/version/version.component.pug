@@ -1,0 +1,90 @@
+.version-container
+    .version
+        form(class="example-form", [formGroup]='formulario')
+            .circulo
+                mat-slide-toggle([checked]="version.status === 1", (change)="cambio($event)")
+            mat-form-field(appearance="outline")
+                mat-label Nombre
+                input(matInput, placeholder="Busca un nombre", formControlName='nombre', [(ngModel)]="version.nombre")
+            //- mat-form-field(appearance="outline", style="width : 100px")
+            //-     mat-label Status
+            //-     input(matInput, placeholder="Busca un nombre", disabled, formControlName='status', [(ngModel)]="version.status")
+            mat-form-field(appearance="outline", style="width : 100px")
+                mat-label Precio
+                input(matInput, placeholder="Busca un nombre", formControlName='precio', [(ngModel)]="version.precio")
+                    
+            mat-form-field(appearance="outline", style="width : 100px")
+                mat-label Existencia
+                input(matInput, placeholder="Busca un nombre", formControlName='existencia', [(ngModel)]="version.existencia")
+            
+            //- mat-form-field
+            //-     input(matInput, placeholder="Busca un status", formControlName='status', [(ngModel)]="version.status")
+            button(mat-stroked-button, (click)="aceptar()")
+                mat-icon save
+            button(mat-stroked-button, [matMenuTriggerFor]="menu")
+                mat-icon menu
+            mat-menu(#menu="matMenu")
+                mat-nav-list
+                    mat-list-item((click)="asignar()") Asignar versión a otro producto
+                    mat-list-item((click)="crear()") Crear producto apartir de esta versión
+                    mat-list-item((click)="recalcular()") Recalcular el precio
+                    mat-list-item((click)="imprimir()") Imprimir
+        
+        .categoriasyatributos
+            .titulo Categorias de la versión                
+            atributos([opciones]="opciones", [version]="version")
+        .preciosyexistencias
+            .titulo Información operacional de la versión
+            mat-accordion
+                mat-expansion-panel
+                    mat-expansion-panel-header
+                        mat-panel-title Precios y margenes
+                        mat-panel-description
+                            
+                    
+                    mat-table(mat-table, [dataSource]="sucursales", class="mat-elevation-z8")
+
+                            
+                        ng-container(matColumnDef="nombre")
+                            mat-header-cell( *matHeaderCellDef) Nombre
+                            mat-cell( *matCellDef="let element")
+                                .circulo([style.border-color]="element.Inventario.status === 1 ? 'rgb(76, 175, 80)' : 'rgb(244, 67, 54)'")
+                                    mat-slide-toggle([checked]="element.Inventario.status === 1", (change)="cambioprecio($event.checked, element.Inventario)")
+                                    span {{ element.nombre }}
+                                
+                        ng-container(matColumnDef="precios")
+                            mat-header-cell( *matHeaderCellDef) Precio
+                            mat-cell( *matCellDef="let element")
+                                precio([sucursal]="element", [usuario]="usuario")
+            
+                        ng-container(matColumnDef="margenes")
+                            mat-header-cell( *matHeaderCellDef) Margen
+                            mat-cell( *matCellDef="let element")
+                                
+                                margen([id]="element?.Inventario.id", [sucursal]="element" , [version]="version", [producto]="producto" , [usuario]="usuario")
+                                //- margen([sucursal]="element")
+
+                        ng-container(matColumnDef="status")
+                            mat-header-cell( *matHeaderCellDef) Status
+                            mat-cell( *matCellDef="let element")
+                                .precioactual([innerHTML]="calcular(element) | currency")
+                        mat-header-row( *matHeaderRowDef="['nombre', 'precios', 'margenes', 'status']")
+                        mat-row(*matRowDef="let row; columns: [ 'nombre', 'precios', 'margenes', 'status'];")
+
+                mat-expansion-panel
+                    mat-expansion-panel-header
+                        mat-panel-title Existencias
+                        mat-panel-description
+                    mat-table(mat-table, [dataSource]="sucursales", class="mat-elevation-z8")        
+                        ng-container(matColumnDef="nombre")
+                            mat-header-cell( *matHeaderCellDef) Nombre
+                            mat-cell( *matCellDef="let element")
+                                span {{ element.nombre }}
+                        ng-container(matColumnDef="existencia")
+                            mat-header-cell( *matHeaderCellDef) Existencia
+                            mat-cell( *matCellDef="let element")
+                                existencia([sucursal]="element")
+                        mat-header-row( *matHeaderRowDef="[ 'nombre', 'existencia']")
+                        mat-row(*matRowDef="let row; columns: ['nombre', 'existencia'];")
+
+                            

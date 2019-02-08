@@ -1,0 +1,20 @@
+.grid-vendidos-container
+    .grid-vendidos-content
+        mat-grid-list(
+            cols="{{columnas}}",
+            rowHeight="{{height}}"
+            )
+            mat-grid-tile( *ngFor="let producto of productos?.items", [colspan]="colspan", [rowspan]="rowspan")
+                .vendidos-content(style="margin-right: 15px")
+                    .nombre-vendidos
+                        p {{producto.nombre}}
+                    .botones-vendidos
+                        .info-content
+                            .descripcion
+                                p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum iste vel reprehenderit, reiciendis laboriosam it.
+                            .boton-vermas
+                                button.btn-vermas-grid(mat-button) ver más
+                        .carrito-vendidos
+                            button.btn-vermas-carrito(mat-button)
+                                img(src="assets/images/ferremar_carrito.png")
+    mat-paginator([length]="productos.items.length", [pageSize]="10", [pageSizeOptions]="[5, 10, 25, 100]")

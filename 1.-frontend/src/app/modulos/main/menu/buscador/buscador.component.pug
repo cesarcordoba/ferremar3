@@ -1,0 +1,13 @@
+.buscador
+    form(class="example-form", [formGroup]='usersForm')
+        mat-form-field
+            input(matInput, placeholder="Busca un producto", [matAutocomplete]="auto", formControlName='userInput')
+
+    mat-autocomplete(#auto="matAutocomplete", [displayWith]="displayFn")
+        mat-option(*ngIf="isLoading", class="is-loading")
+            mat-spinner(diameter="50")
+        ng-container(*ngIf="!isLoading")
+            mat-option(*ngFor="let user of filteredUsers", [value]="user", (click)="ir(user)")
+                .opcion(style="display : flex")
+                    portada([producto]="user")
+                    span {{ user.nombre }}

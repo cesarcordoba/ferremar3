@@ -1,0 +1,11 @@
+
+.productos-container
+    .productos
+        mat-grid-list(
+            cols="{{columnas}}",
+            rowHeight="{{height}}",
+            gutterSize="4px"
+            )
+            mat-grid-tile(*ngFor="let producto of productos?.items", [colspan]="producto.colspan", [rowspan]="producto.rowspan")
+                fichaproducto([producto]="producto", [tipo]="true")
+        mat-paginator([length]="productos.paginas * 18", [pageSize]="18", [pageSizeOptions]="[18]", (page)="cambioPagina($event)")

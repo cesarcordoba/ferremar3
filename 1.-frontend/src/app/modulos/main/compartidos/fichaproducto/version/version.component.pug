@@ -1,0 +1,23 @@
+
+.version(id="{{version.id}}", (mouseenter) ="accion() ", (mouseleave) ="accion()")
+	.accion
+		.boton
+			button.detalle(mat-button, (click)="ir()") Ver detalle
+			button.agregar(mat-button, (click)="agregar()") Agregar
+	.version-content
+		.detalles
+			.opciones
+				button.opcion(mat-button, *ngFor="let opcion of opciones")
+					span {{opcion.nombre}}
+					//- md-tooltip
+					//- 	span(ng-repeat="atributo in ctrl.atributos" ng-if="atributo.id === opcion.IdAtributo") {{atributo.nombre}} 
+	
+		.existencia
+			strong {{ version.existencia }}  
+			span   disponibles
+	//- .precio-container([ngClass]="{false : 'normal', true : 'oferta'}[oferta]")
+	.precio-container([ngClass]="{ 'normal' : oferta === false ,  'oferta' : oferta === true  }")
+		div
+			.precio(*ngIf="version.precio") $ {{ version.precio }}
+			.descuento(*ngIf="descuento") $ {{ version.precio - (( descuento.cantidad / 100 ) *  version.precio) | number:0 }}
+		//- md-progress-circular(md-mode="indeterminate" ng-if="!version.precio" md-diameter="15")

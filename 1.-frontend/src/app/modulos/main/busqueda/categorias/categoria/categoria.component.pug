@@ -1,0 +1,9 @@
+
+.categoria.encapsulada
+    mat-form-field(appearance="outline")
+        input(matInput, placeholder="Categorias", aria-label="State", [matAutocomplete]="auto", [formControl]="myControl", [(ngModel)]="item", (ngModelChange)="cambio()")
+        mat-autocomplete(#auto="matAutocomplete")
+            //- mat-select([(ngModel)]="item" placeholder="Favorite food" )
+            mat-option(*ngFor="let item of categorias | async", [value]="item") {{item}}
+    button(mat-button, mat-stroked-button, (click)="eliminacion()")
+        mat-icon clear

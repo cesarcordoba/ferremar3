@@ -1,0 +1,8 @@
+
+mat-card.componente([ngStyle]="borde")
+    mat-toolbar
+        mat-toolbar-row(style="justify-content : space-between")
+            .titulo
+                h3 atributos
+                strong Sección
+    categoria(*ngFor="let atributo of atributos", [objeto]="atributo", [opciones]="opciones", [version]="version")

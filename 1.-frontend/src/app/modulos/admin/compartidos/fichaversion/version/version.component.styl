@@ -1,0 +1,71 @@
+
+@import  '../../../../../../defaults.styl'
+
+
+.categoriasyatributos, .preciosyexistencias
+    @extend .borde
+    .titulo
+        @extends .borde
+        background-color: azul1
+        color white
+        font-family: arial
+        span
+            margin 0 10px
+
+.otrasopciones
+    @extend .borde
+    display flex
+    button
+        width 100%
+        flex 1
+
+.version
+    form
+        @extends .borde
+        display flex
+        align-items: center;
+        &>*
+            margin 0 5px
+        mat-form-field
+            .mat-form-field-wrapper
+                padding 0px !important
+
+.mat-form-field-wrapper
+    padding 0px !important
+
+.mat-column-nombre
+    flex: 0 0 128px
+
+
+precio, existencia, margen
+    width 100%
+
+.circulo
+    @extend .borde
+
+.version-container
+    width 100%
+    display: flex
+    justify-content: center
+    .version
+        width 95%
+        h4
+            color azul1
+            font-size: 13px
+
+
+.preciosyexistencias
+    margin 20px 0
+
+
+.mat-column-status
+    flex: 0 0 80px
+
+
+.mat-expansion-panel-body
+    padding 0px !important
+
+.precioactual
+    font-size 20px
+    text-align center
+    width 100%

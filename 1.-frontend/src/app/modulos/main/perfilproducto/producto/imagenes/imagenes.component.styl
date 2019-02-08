@@ -1,0 +1,71 @@
+
+@import  '../../../../../../defaults.styl'
+
+
+
+.imagenes
+	max-width 500px
+	position relative
+	display flex
+	flex-direction row
+
+
+
+#slider
+	width 80px !important
+	margin-top 5px
+	.slick-list
+		height 100% !important
+	.slick-dots
+		padding 0px
+		bottom 0px
+		li button:before
+			content none
+	.slick-slide, .portada, .imagen
+		max-height 80px
+		img
+			width 100%
+
+#central
+	width calc(100% - 100px)
+	max-width 480px
+	.slick-list, .slick-track
+		height 100% !important
+	.portada
+		width 300px !important
+	.slick-slide, .portada, .imagen
+		display flex !important
+		justify-content center
+		align-items center
+		img
+			height 200px
+			width auto
+
+.slick-slider
+	.slick-arrow
+		height 100px !important
+		width 50px !important
+		z-index 1
+		background-color white !important
+		@extends .boxshadow
+		&:hover
+			background-color azul
+			color white
+		&:before
+			color azul
+		&.slick-prev
+			left 25px
+			@media mobile
+				left -25px
+			&:before
+				font-family "Material Icons"
+				content "keyboard_arrow_left"
+				color black
+		&.slick-next
+			right 25px
+			@media mobile
+				right -25px
+			&:before
+				font-family "Material Icons"
+				content "keyboard_arrow_right"
+				color black

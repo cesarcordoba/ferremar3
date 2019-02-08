@@ -1,0 +1,17 @@
+
+
+h1 {{ promo?.nombre }}
+form(class="example-form")
+    mat-form-field
+        input(matInput, placeholder="Busca un nombre", [(ngModel)]="promo.nombre",  name="nombre")
+    mat-form-field
+        input(matInput, placeholder="Busca un status", [(ngModel)]="promo.status",  name="status")
+    mat-form-field
+        input(matInput [matDatepicker]="inicio" placeholder="Cuando inicia",  [(ngModel)]="promo.inicio", name="inicio")
+        mat-datepicker-toggle(matSuffix [for]="inicio")
+        mat-datepicker(#inicio)
+    mat-form-field
+        input(matInput [matDatepicker]="final" placeholder="cuando termina",  [(ngModel)]="promo.final", name="final")
+        mat-datepicker-toggle(matSuffix [for]="final")
+        mat-datepicker(#final)
+button(mat-raised-button (click)="aceptar()") Aceptar

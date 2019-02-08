@@ -1,0 +1,8 @@
+mat-paginator([length]="ambientes.items.length * filtro.limite", [pageSize]="10", [pageSizeOptions]="[5, 10, 25, 100]", (page)="cambioPagina($event)")
+mat-grid-list(
+    cols="{{columnas}}",
+    rowHeight="{{height}}"
+    )
+    mat-grid-tile( *ngFor="let ambiente of ambientes?.items", [colspan]="colspan", [rowspan]="rowspan", (click)="ir(ambiente)")
+        .imagen([style.background-image]="'url(' + ambiente?.espacios[0]?.link + ')'")
+mat-paginator([length]="ambientes.items.length * filtro.limite", [pageSize]="10", [pageSizeOptions]="[5, 10, 25, 100]", (page)="cambioPagina($event)")

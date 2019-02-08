@@ -1,0 +1,17 @@
+
+
+section(*ngIf="producto")
+    imagenes([producto]="producto")    
+    aside
+        .titulo
+            h1 {{producto?.nombre}}
+            strong {{marca?.nombre}}
+        section
+            linea([linea]="linea", *ngFor="let linea of lineas")
+        section
+            gama([gama]="gama",  *ngFor="let gama of gamas")
+        section.versiones
+            version([promociones]="promociones", [version]="version",   *ngFor="let version of versiones")
+        .advertencia-container
+            .advertencia
+                p Los precios pueden variar dependiendo de la sucursal.

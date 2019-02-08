@@ -1,0 +1,13 @@
+.barra-container
+    .barra-content
+        button.btn-menu(mat-button, (click)="ir('busqueda')") Productos
+        button.btn-menu(mat-button, (click)="abrir()") Categorias
+        //--
+            button.btn-menu(mat-button, (click)="abrir($event)") HERRAMIENTAS
+            button.btn-menu(mat-button, (click)="abrir($event)") CONSTRUCCION
+            button.btn-menu(mat-button, (click)="abrir($event)") HOGAR
+            button.btn-menu(mat-button, (click)="abrir($event)") FERRETERI
+.barra-negrita-container 
+    .barra-negrita-content
+        button.btn-negrita(mat-button)
+            img(src="assets/images/ferremar_home.png")

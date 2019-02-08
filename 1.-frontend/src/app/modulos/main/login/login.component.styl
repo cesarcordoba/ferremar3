@@ -1,0 +1,78 @@
+@import '../../../../defaults.styl'
+
+.login, .registro
+    height 100%
+    width 100%
+    display flex
+    justify-content center
+    align-items center
+    form
+        display flex
+        flex-direction column
+        height auto
+        width 100%
+        h1
+            margin 5px
+            @media mobile
+                display none
+            font-size 20px
+        .contenido
+            display: flex
+            flex-direction: column;
+            .linea
+                display: flex
+                mat-form-field
+                    &.first-child
+                        margin-right 5px
+                    &.last-child
+                        margin-left 5px
+
+            mat-form-field
+                width 100%
+                padding 0px
+                @media mobile
+                    height 58px
+                .mat-form-field-wrapper
+                    .mat-form-field-flex
+                        @media mobile
+                            height 50px
+                        .mat-form-field-infix
+                            @media mobile
+                                height 40px
+        .boton
+            background-color rgba(255, 160, 42, 0.302) !important
+            @media mobile
+                margin-top 10px
+.social, .boton
+    display flex
+    margin 5px 0
+    a, button
+        width 100%
+.social
+    &.first-child
+        margin-left 5px
+    &.last-child
+        margin-right 5px
+
+.alternativa
+    display inline-flex
+    width 90%
+    margin 20px 5%
+    @media mobile 
+        height 21px
+    &:after, &:before
+    	width 100%
+    	border-top 2px solid azul
+    	margin 15px 0px
+    	content ''
+    .circle
+    	margin auto
+    	border 2px solid azul
+    	border-radius 50px
+    	min-width 20px
+    	height 20px
+    	padding 3px
+    	text-align center
+    	display flex
+    	p
+    		margin auto

@@ -1,0 +1,45 @@
+
+@import  '../../../../../../defaults.styl'
+
+
+.version
+	width 100%
+	.version-content
+		width 100%
+		height 13px
+		display flex
+		flex-direction row
+		span
+			width 100%
+			font-size 12px
+			font-family Calibri
+			font-weight 800
+		.opciones
+			display flex
+			flex-direction row
+			.opcion
+				margin 0 10px
+				font-size 12px
+				font-family Calibri
+				font-weight 800
+			.color
+				height 15px
+				width 15px
+	.precio-container
+		width 100%
+		&>div
+			width 100%
+			text-align end
+		&.descuento
+			.precio
+				text-decoration line-through
+				font-size 14px
+				color azul1
+			.descuento
+				font-size 1.714em
+				color rojo1
+.oferta
+	div
+		margin 5px 0
+	p
+		margin 0px

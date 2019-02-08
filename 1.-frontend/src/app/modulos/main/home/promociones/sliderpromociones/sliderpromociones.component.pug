@@ -1,0 +1,12 @@
+.slider-promociones
+    .slider(*ngIf="promos")
+        ngx-slick.carousel(#slickModal="slick-modal",   [config]="slideConfig",  (afterChange)="afterChange($event)"  )
+            .slide(ngxSlickItem,  *ngFor="let promo of promos.items ; index as i ")
+                .promo-content
+                    .imagen-promo
+                        p {{promo.nombre}}
+                    .informacion-promo
+                        .descripcion
+                            .texto
+                                p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora sint quae, perspiciatis aut dolorum reiciendis
+                        .cuadrado

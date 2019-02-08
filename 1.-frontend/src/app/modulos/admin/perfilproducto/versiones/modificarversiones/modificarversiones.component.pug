@@ -1,0 +1,46 @@
+form([formGroup]='formulario')
+    mat-form-field(appearance="outline")
+        mat-label Elegir un atributo
+        mat-select(formControlName='atributo')
+            mat-option(*ngFor="let atributo of atributos", [value]="atributo") {{atributo.nombre}}
+    button(mat-stroked-button, (click)="aceptar()") Aceptar
+    button(mat-stroked-button, (click)="nada()") Nada
+
+.tablas
+    h4 Palabras
+    table(matSort)
+        tr
+            th
+        tr(*ngFor="let version of versiones")
+            td(*ngFor="let palabra of version.palabras ; let i = index")
+                .palabra
+                    strong {{ palabra }}
+                    span(*ngIf="acciones[i]") {{ acciones[i]?.nombre }}
+.botones
+    button(mat-stroked-button) Aceptar
+    button(mat-stroked-button) Cancelar
+
+//- mat-table(mat-table, [dataSource]="versiones")
+//-     ng-container(matColumnDef="nombre")
+//-         mat-header-cell( *matHeaderCellDef) Nombre
+//-         mat-cell( *matCellDef="let element")
+//-             p {{element.nombre}}
+//-     ng-container(matColumnDef="versiones")
+//-         mat-header-cell( *matHeaderCellDef) Versiones
+//-         mat-cell( *matCellDef="let element")
+//-             p {{element.linea}}
+//- 
+//-     ng-container(matColumnDef="detalle")
+//-         mat-header-cell( *matHeaderCellDef) Detalle
+//-         mat-cell( *matCellDef="let element")
+//-             mat-button-toggle-group
+//-                 mat-button-toggle((click)="abrir(element)")
+//-                     mat-icon info
+//-                 mat-button-toggle((click)="ir(element)")
+//-                     mat-icon edit
+//-             //- button.detalle(mat-button (click)="abrir(element)")
+//-             //-     mat-icon info
+//-             //- button.detalle(mat-button (click)="ir(element)")
+//-             //-     mat-icon edit
+//-     mat-header-row( *matHeaderRowDef="['nombre', 'versiones', 'detalle']")
+//-     mat-row(*matRowDef="let row; columns: ['nombre', 'versiones', 'detalle'];")

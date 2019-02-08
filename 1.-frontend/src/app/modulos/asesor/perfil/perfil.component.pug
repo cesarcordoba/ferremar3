@@ -1,0 +1,44 @@
+.container
+    .content
+        .usuario
+            fichausuario
+            
+            mat-accordion
+                mat-expansion-panel
+                    mat-expansion-panel-header
+                        mat-panel-title Logs
+                        mat-panel-description
+                            
+                    
+                    mat-table(mat-table, [dataSource]="usuario.logs", class="mat-elevation-z8")
+
+                            
+                        ng-container(matColumnDef="fecha")
+                            mat-header-cell( *matHeaderCellDef) Nombre
+                            mat-cell( *matCellDef="let element") {{ element.createdAt | date:'medium'  }}
+                                
+                        mat-header-row( *matHeaderRowDef="['fecha']")
+                        mat-row(*matRowDef="let row; columns: [ 'fecha'];")
+
+                mat-expansion-panel
+                    mat-expansion-panel-header
+                        mat-panel-title Actividades
+                        mat-panel-description
+                    mat-table(mat-table, [dataSource]="usuario.acciones", class="mat-elevation-z8")        
+                        
+                        ng-container(matColumnDef="seccion")
+                            mat-header-cell( *matHeaderCellDef) Nombre
+                            mat-cell( *matCellDef="let element") {{ element.seccion }}
+                            
+                        ng-container(matColumnDef="contenido")
+                            mat-header-cell( *matHeaderCellDef) Contenido
+                            mat-cell( *matCellDef="let element") {{ element.contenido }}
+                            
+                        ng-container(matColumnDef="objeto")
+                            mat-header-cell( *matHeaderCellDef) Objecto
+                            mat-cell( *matCellDef="let element") {{ element.objeto }}
+        
+                        mat-header-row( *matHeaderRowDef="[ 'seccion', 'contenido', 'objeto' ]")
+                        mat-row(*matRowDef="let row; columns: [ 'seccion', 'contenido', 'objeto'];")
+
+                                    

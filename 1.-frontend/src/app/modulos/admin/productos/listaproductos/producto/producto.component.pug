@@ -1,0 +1,16 @@
+mat-list
+    mat-list-item
+        .imagen(matListAvatar)
+            .portada
+                img([src]="portada?.link")
+            .dimensiones
+                button.dimension(mat-button, matTooltip="400x400", [ngStyle]="color", [style.opacity]="dimensiones['400x400']")
+                button.dimension(mat-button, matTooltip="200x200", [ngStyle]="color", [style.opacity]="dimensiones['200x200']")
+                button.dimension(mat-button, matTooltip="100x100", [ngStyle]="color", [style.opacity]="dimensiones['100x100']")
+                button.dimension(mat-button, matTooltip="50x50",  [ngStyle]="color", [style.opacity]="dimensiones['50x50']")
+        //- mat-icon(mat-list-icon [ngStyle]="color") lens
+        h4(mat-line) {{producto.nombre}}
+        p(mat-line) {{categoria?.nombre}}
+        p(mat-line) {{marca?.nombre}}
+        p(mat-line) {{gama?.nombre}}
+        p(mat-line) {{linea?.nombre}}

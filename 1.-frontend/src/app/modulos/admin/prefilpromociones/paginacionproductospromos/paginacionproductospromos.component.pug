@@ -1,0 +1,23 @@
+
+button(mat-button, (click)="abrirversiones()") AbrirVersiones
+button(mat-button, (click)="abrirproductos()") AbrirProductos
+button(mat-button, (click)="abrircantidad()") Abrir Cantidad
+mat-table(mat-table, [dataSource]="productos.items", class="mat-elevation-z8")
+    ng-container(matColumnDef="nombre")
+        mat-header-cell( *matHeaderCellDef) Nombre
+        mat-cell( *matCellDef="let element")
+            span {{element.id}} |
+            strong {{element.nombre}}
+    ng-container(matColumnDef="descuento")
+        mat-header-cell( *matHeaderCellDef) Oferta
+        mat-cell( *matCellDef="let element")
+            mat-icon([style.color]="element.Disponible.descuento === 1 ? '#9c3' : '#cc0000' ") lens
+            //- span {{element.Disponible.descuento}}
+    ng-container(matColumnDef="oferta")
+        mat-header-cell( *matHeaderCellDef) Descuento
+        mat-cell( *matCellDef="let element")
+            mat-icon([style.color]="element.Disponible.oferta === 1 ? '#9c3' : '#cc0000' ") lens
+            //- span {{element.Disponible.oferta}}
+    mat-header-row( *matHeaderRowDef="['nombre', 'descuento','oferta']")
+    mat-row(*matRowDef="let row; columns: ['nombre', 'descuento','oferta'];")
+mat-paginator([length]="productos.paginas * filtro.limite", [pageSize]="10", [pageSizeOptions]="[5, 10, 25, 100]", (page)="cambioPagina($event)")

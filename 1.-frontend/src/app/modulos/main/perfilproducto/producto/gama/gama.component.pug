@@ -1,0 +1,6 @@
+
+
+button(mat-button, matTooltip="{{gama.nombre}}", (click)="ir()")
+    picture(*ngIf="portadas && portadas.length > 0")
+        //- source(srcset="{{imagen.link}}" *ngFor="let imagen of portadas" media="(min-width : 0px)")
+        img(src="{{portadas[0]?.link}}")

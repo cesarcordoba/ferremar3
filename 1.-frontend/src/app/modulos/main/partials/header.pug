@@ -1,0 +1,8 @@
+mat-toolbar(id="menu", color="primary", role="header", *ngIf="!mobileQuery.matches")
+	mat-toolbar-row
+		a(mat-button, class="logo", [routerLink]="['/']", [routerLinkActive]="['active']").active
+			img(*ngIf="trasparente",  src="assets/images/aerial_logo_color.png")
+			img(*ngIf="!trasparente", src="assets/images/aerial_logo_blanco.png")
+		.espacio
+		.botones
+			a(mat-button, *ngFor="let navLink of navLinks" , [routerLink]="navLink.path",[routerLinkActive]="['active']").active {{navLink.label}}

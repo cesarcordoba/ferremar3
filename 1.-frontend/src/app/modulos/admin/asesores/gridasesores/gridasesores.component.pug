@@ -1,0 +1,23 @@
+
+
+mat-grid-list(
+    cols="{{columnas}}",
+    rowHeight="{{height}}"
+    )
+    mat-grid-tile( *ngFor="let usuario of usuarios?.items", [colspan]="colspan", [rowspan]="rowspan")
+        mat-card((click)="ir(usuario)")
+            .avatar
+                .imagen
+                    img([src]="fijarPortada(usuario?.avatares)", style="width : 100px")
+            mat-list
+                mat-list-item
+                    strong(matLine) nombre
+                    p(matLine) {{usuario.nombre}}
+                mat-list-item
+                    strong(matLine) Ultimo inicio de sesión
+                    p(matLine, [innerHtml]="fijarLog(usuario?.logs) | date:'medium'") {{usuario.nombre}}
+                mat-list-item
+                    strong(matLine) Sucursal
+                    p(matLine) {{usuario?.sucursal?.nombre}}
+            
+mat-paginator([length]="usuarios.items.length", [pageSize]="10", [pageSizeOptions]="[5, 10, 25, 100]")

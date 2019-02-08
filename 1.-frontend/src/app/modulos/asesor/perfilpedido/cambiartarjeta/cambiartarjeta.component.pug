@@ -1,0 +1,18 @@
+h2 Cambiar Tarjeta
+mat-table.mat-elevation-z8(mat-table, [dataSource]="tarjetas")
+    ng-container(matColumnDef="marca")
+        mat-header-cell( *matHeaderCellDef) Marca
+        mat-cell( *matCellDef="let element")
+            mat-icon([style.color]="element.principal === 1 ? 'green ' : 'red'") lens
+            span {{element.marca}}
+    ng-container(matColumnDef="numero")
+        mat-header-cell( *matHeaderCellDef) Numero
+        mat-cell( *matCellDef="let element")
+            span {{element.numero}}
+    ng-container(matColumnDef="accion")
+        mat-header-cell( *matHeaderCellDef) Accion
+        mat-cell( *matCellDef="let element")
+            button(mat-button, (click)="cambiar(element)")
+                mat-icon done
+    mat-header-row( *matHeaderRowDef="['marca','numero',  'accion']")
+    mat-row(*matRowDef="let row; columns: ['marca', 'numero', 'accion'];")

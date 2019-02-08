@@ -1,0 +1,28 @@
+//- mat-form-field(appearance="outline")
+//- 	mat-chip-list(#chipList)
+//- 		mat-chip(*ngFor="let margen of margenes", [selectable]="selectable", [removable]="removable", (removed)="remove(fruit)", [style.background-color]=" margen.status === 1 ? 'rgb(76, 175, 80)' : 'rgb(244, 67, 54)'") {{margen.cantidad}}
+//- 			mat-icon(matChipRemove)
+//- 		input(placeholder="Nuevo margen", [matChipInputFor]="chipList")
+
+
+mat-form-field(appearance="outline")
+	mat-chip-list(#chipList)
+		mat-chip(
+			(click)="abrir(item)",
+			*ngFor="let item of chips",
+			[selectable]="selectable",
+			[removable]="removable",
+			(removed)="remove(item)", [style.background-color]=" item.Variacionmargen.status === 1 ? 'rgb(76, 175, 80)' : 'rgb(244, 67, 54)' ") {{item.nombre}} | {{item.cantidad}} %
+			mat-icon(matChipRemove, *ngIf="removable") cancel
+		input(
+			placeholder="Agregar Margenes",
+			#input,
+			[formControl]="fruitCtrl",
+			[matAutocomplete]="auto",
+			[matChipInputFor]="chipList",
+			[matChipInputSeparatorKeyCodes]="separatorKeysCodes",
+			[matChipInputAddOnBlur]="addOnBlur",
+			)
+		mat-autocomplete(#auto="matAutocomplete", (optionSelected)="selected($event)")
+			mat-option(*ngFor="let item of filtered | async", [value]="item.cantidad") {{item.nombre}} | {{item.cantidad}} %
+//- (matChipInputTokenEnd)="add($event)" 

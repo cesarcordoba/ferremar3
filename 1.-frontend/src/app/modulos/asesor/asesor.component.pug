@@ -1,0 +1,27 @@
+div(class="contenedor", [class.isMobile]="mobileQuery.matches")
+    mat-toolbar(class="nav-toolbar mat-elevation-z8")
+        button(mat-icon-button, (click)="snav.toggle()", matTooltip="Abrir menu")
+            mat-icon menu
+        span(class="tool-bar-spacer")
+        h1 Bienvenido {{usuario?.nombre}}
+        span(class="tool-bar-spacer")
+        a.active(mat-button [mat-menu-trigger-for]="menuUser")
+            mat-icon account_circle
+            
+        mat-menu(#menuUser="matMenu")
+            a(mat-menu-item, [routerLink]="['/asesor/perfil']")
+                mat-icon account_box
+                span {{ usuario?.nombre }}
+            a(mat-menu-item, [routerLink]="'/login'", (click)="salir()")
+                mat-icon exit_to_app
+                span Cerrar Sesión  
+    mat-sidenav-container(class="sidenav-container", [style.marginTop.px]="mobileQuery.matches ? 65 : 0")
+        mat-sidenav(#snav, [mode]="mobileQuery.matches ? 'over' : 'side'", [fixedInViewport]="mobileQuery.matches", fixedTopGap="65", [opened]="mobileQuery.matches? false : true")
+            mat-nav-list
+                mat-list-item(*ngFor="let link of navLinks", [routerLink]="link.path", [routerLinkActive]="['active-nav']", (click)="snav.toggle()" )
+                    mat-icon {{link.icon}}
+                    p {{link.label}}
+        mat-sidenav-content
+            .contenido 
+                router-outlet
+            footer

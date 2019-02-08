@@ -1,0 +1,13 @@
+.titulo
+    button(mat-stroked-button, [matMenuTriggerFor]="menu")
+        mat-icon more_vert
+    mat-menu(#menu="matMenu")
+        mat-nav-list
+            mat-list-item((click)="modificar()") Seleccionar Atributos
+    span versiones
+
+
+mat-tab-group([selectedIndex]="selected.value", (selectedIndexChange)="selected.setValue($event)")
+    mat-tab(label="{{version.nombre}}", *ngFor="let version of versiones; let i = index")
+        .version(*ngIf="selected.value === i")
+            fichaversion([version]="version", [producto]="producto", (recargar)="recargar($event)")

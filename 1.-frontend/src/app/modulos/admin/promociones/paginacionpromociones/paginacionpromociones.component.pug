@@ -1,0 +1,26 @@
+.container
+    .lista
+        button(mat-button, (click)="crearPromocion()") Crear promoción
+        mat-table(mat-table, [dataSource]="promos.items", class="mat-elevation-z8")
+            ng-container(matColumnDef="nombre")
+                mat-header-cell( *matHeaderCellDef) Nombre
+                mat-cell( *matCellDef="let element") {{element.nombre}}
+            
+            ng-container(matColumnDef="inicio")
+                mat-header-cell( *matHeaderCellDef) Inicio
+                mat-cell( *matCellDef="let element") {{element.inicio}}
+                
+            ng-container(matColumnDef="final")
+                mat-header-cell( *matHeaderCellDef) Final
+                mat-cell( *matCellDef="let element") {{element.final}}
+                
+            ng-container(matColumnDef="accion")
+                mat-header-cell( *matHeaderCellDef) Acción
+                mat-cell( *matCellDef="let element")
+                    button(mat-button, (click)="ir(element)")
+                        mat-icon edit
+            mat-header-row( *matHeaderRowDef="['nombre', 'accion', 'inicio', 'final']")
+            mat-row(*matRowDef="let row; columns: ['nombre', 'accion', 'inicio', 'final'];")
+        mat-paginator([length]="promos.paginas * filtro.limite", [pageSize]="10", [pageSizeOptions]="[5, 10, 25, 100]", (page)="cambioPagina($event)")
+    .calendario
+        #calendar

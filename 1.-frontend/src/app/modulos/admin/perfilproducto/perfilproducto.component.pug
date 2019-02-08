@@ -1,0 +1,13 @@
+
+.container
+    .content
+        .producto
+            section
+                .titulo Imagen
+                imagenportada([id]="producto.id")
+            section
+                .titulo Información Básica
+                fichaproducto([producto]="producto", [nuevoProducto]="pasarProducto")
+        .versiones
+            section
+                versiones([nuevoProducto]="pasarProducto")

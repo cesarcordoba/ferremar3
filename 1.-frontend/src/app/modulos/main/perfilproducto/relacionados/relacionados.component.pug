@@ -1,0 +1,9 @@
+
+
+mat-grid-list(
+    cols="6",
+    rowHeight="300px",
+    gutterSize="2px"
+    )
+    mat-grid-tile(*ngFor="let producto of productos?.items", [colspan]="1", [rowspan]="1")
+        fichaproducto([producto]="producto")

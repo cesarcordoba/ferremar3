@@ -1,0 +1,58 @@
+
+@import  '../../../../../../../defaults.styl'
+
+mat-toolbar
+	padding 0px !important
+	margin 0px !important
+	height 40px !important
+	h4
+		color white
+		z-index 2
+		padding 0 20px
+
+.detalles
+	p
+		margin 0px
+
+.slider
+	height 300px
+	display flex
+	align-items center
+ngx-slick
+	width 100%
+.slick-slider
+	.slick-arrow
+		height 100px !important
+		width 50px !important
+		z-index 1
+		background-color white !important
+		@extends .boxshadow
+		&:hover
+			background-color azul
+			color white
+		&:before
+			color azul
+		&.slick-prev
+			left 25px
+			@media mobile
+				left -25px
+			&:before
+				font-family "Material Icons"
+				content "keyboard_arrow_left"
+				color black
+		&.slick-next
+			right 25px
+			@media mobile
+				right -25px
+			&:before
+				font-family "Material Icons"
+				content "keyboard_arrow_right"
+				color black
+
+.categoria
+	position relative
+	width 100%
+	.slick-list, .slick-track
+		height 250px !important
+	.slide
+		width 200px !important

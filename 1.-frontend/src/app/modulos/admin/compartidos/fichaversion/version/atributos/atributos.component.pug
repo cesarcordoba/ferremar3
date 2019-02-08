@@ -1,0 +1,11 @@
+
+
+.categorias
+    .instrucciones-container
+        .instrucciones Las categorias se muestran de forma jerarquica, es decir, inserta los atributos disponibles para este producto
+    mat-accordion
+        mat-expansion-panel(*ngFor="let atributo of atributos")
+            mat-expansion-panel-header
+                mat-panel-title {{atributo.categoria.nombre}}
+                mat-panel-description
+            categoria([objeto]="atributo", [opciones]="opciones", [version]="version")

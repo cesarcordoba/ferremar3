@@ -1,0 +1,58 @@
+main
+    header
+        mat-toolbar
+            .logo-content((click)="ir('')")
+                img(src="assets/images/ferremar_logo.png")
+            .buscadormain
+                buscadormain
+                //- div(*ngFor="let link of navLinks" )
+                //-     button(mat-button, [routerLink]="link.path" ) {{link.label}}
+            .inicioSesion
+                .sinUsuario(*ngIf="usuario === null")
+                    button.btn-login-main(mat-button, (click)="login()") 
+                        img(src="assets/images/ferremar_usuario.png")
+                    .texto-container
+                        .texto1
+                            p Iniciar sesión
+                        .texto2
+                            p o registrarse
+                .linea-vertical(*ngIf="usuario === null")
+                .conUsuario(*ngIf="usuario !== null")
+                    button.avatarbutton(mat-button, [mat-menu-trigger-for]="menuUser")
+                        .avatar-content
+                            .avatar(*ngIf="usuario?.avatares?.length > 0", [ngStyle]="{ 'background-image' :' url(' +  usuario?.avatares[0]?.link +  ')' }")
+                            span  Hola {{usuario?.nombre}}
+                
+                mat-menu(#menuUser="matMenu")
+                    a(mat-menu-item, [routerLink]="['usuario']")
+                        mat-icon account_box
+                        span {{ usuario?.nombre }}
+                    a(mat-menu-item, (click)="salir()")
+                        mat-icon exit_to_app
+                        span Cerrar Sesión
+                bolsa 
+        //-menu
+        barramenuhome
+        //- include ./partials/header.pug
+    //- .contenido([@routerTransition]="getState(o)")     
+    .contenido
+        //- router-outlet(#o="outlet")
+        router-outlet
+    footer
+        .contenedor-abajo
+            .copyrigth
+                p Copyrigth ® 2019 Ferremar. Todos los derechos reservados
+                .aviso
+                    button.btn-privacidad(mat-button) Aviso de privacidad
+                    .linea-abajo
+                    button.btn-condiciones(mat-button) Términos y condiciones
+            .contactos
+                .correo
+                    img(src="assets/images/ferremar_correo.png")
+                    p ferremar@outlook.com
+                .telefono
+                    img(src="assets/images/ferremar_telefono.png")
+                    p (229) 286 20 03
+            .imagen
+                .logo-abajo
+                    img(src="assets/images/ferremar_logo.png")

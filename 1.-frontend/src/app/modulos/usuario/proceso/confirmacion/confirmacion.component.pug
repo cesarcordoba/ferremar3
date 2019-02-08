@@ -1,0 +1,50 @@
+
+
+//- mat-list
+//-     mat-list-item(*ngFor="let favorito of favoritos")
+//-         .imagen(*ngIf="favorito?.producto?.portadas?.length > 0")
+//-             img([src]="favorito?.producto?.portadas[0].link")
+//-             button.eliminar(mat-mini-fab, (click)="eliminar()")
+//-                 mat-icon clear
+//-         .texto
+//-             span {{favorito?.producto?.nombre}}
+//-             mat-form-field
+//-                 mat-label cantidad
+//-                 input(matInput, [(ngModel)]="favorito.Favorito.cantidad")
+//- 
+
+mat-table(mat-table, [dataSource]="favoritos", class="mat-elevation-z8")
+    ng-container(matColumnDef="nombre")
+        mat-header-cell( *matHeaderCellDef) Producto
+        mat-cell( *matCellDef="let favorito")
+            .imagen(*ngIf="favorito?.producto?.portadas?.length > 0")
+                img([src]="favorito?.producto?.portadas[0].link") 
+                button.eliminar(mat-mini-fab, (click)="eliminar()")
+                    mat-icon clear
+            .texto {{favorito?.producto?.nombre}}
+        mat-footer-cell(*matFooterCellDef) Total
+
+    ng-container(matColumnDef="cantidad")
+        mat-header-cell( *matHeaderCellDef) Cantidad
+        mat-cell( *matCellDef="let favorito")
+            mat-form-field(appearance="outline")
+                mat-label cantidad
+                input(matInput, type="number", [(ngModel)]="favorito.Favorito.cantidad")
+        mat-footer-cell(*matFooterCellDef)     
+            
+    ng-container(matColumnDef="precio")
+        mat-header-cell( *matHeaderCellDef) Precio
+        mat-cell( *matCellDef="let favorito")
+            //- span {{favorito?.precio}}
+            span {{favorito?.precioactual | currency }}
+            //- versiones([producto]="element")
+        mat-footer-cell(*matFooterCellDef)
+            strong {{ total | currency }}
+    
+
+    mat-header-row( *matHeaderRowDef="['nombre', 'cantidad',  'precio']")
+    mat-row(*matRowDef="let row; columns: ['nombre',  'cantidad' , 'precio' ]")
+    mat-footer-row(*matFooterRowDef="['nombre', 'cantidad', 'precio']")
+        
+                        
+                        

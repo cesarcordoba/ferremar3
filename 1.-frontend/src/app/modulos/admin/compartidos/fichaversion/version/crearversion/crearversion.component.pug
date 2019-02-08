@@ -1,0 +1,7 @@
+
+span ¿Quieres crear un nuevo producto apartir de la version "{{version?.nombre}}"? 
+form([formGroup]="formulario", (ngSubmit)="aceptar()")
+    mat-form-field(appearance="outline")
+        mat-label Introduce el nombre del nuevo producto
+        input(matInput, maxlength="256", formControlName="nombre", placeholder="nombre")
+    button(mat-stroked-button, type="submit") Aceptar

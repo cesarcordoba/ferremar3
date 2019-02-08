@@ -1,0 +1,25 @@
+
+button(mat-button, (click)="abrircantidad()") Crear un nuevo descuento
+mat-table(mat-table, [dataSource]="descuentos.items", class="mat-elevation-z8")
+    ng-container(matColumnDef="nombre")
+        mat-header-cell( *matHeaderCellDef) Cantidad
+        mat-cell( *matCellDef="let element") {{element.cantidad}}
+    ng-container(matColumnDef="versiones")
+        mat-header-cell( *matHeaderCellDef) Versiones
+        mat-cell( *matCellDef="let element")
+            .versiones
+                button(mat-button, (click)="abrirproductos(element)") Agregar nuevo versión
+                mat-list
+                    mat-list-item(*ngFor="let version of element.versiones")
+                        button((click)="desligarversion(element, version)")
+                            mat-icon delete
+                        p(mat-line) {{version.nombre}}
+                        
+    ng-container(matColumnDef="acciones")
+        mat-header-cell( *matHeaderCellDef) Acciones
+        mat-cell( *matCellDef="let element")
+            button(mat-button, (click)="eliminar(element)")
+                mat-icon delete
+    mat-header-row( *matHeaderRowDef="['nombre', 'versiones', 'acciones']")
+    mat-row(*matRowDef="let row; columns: ['nombre', 'versiones', 'acciones'];")
+mat-paginator([length]="descuentos.paginas * filtro.limite", [pageSize]="10", [pageSizeOptions]="[5, 10, 25, 100]", (page)="cambioPagina($event)")

@@ -1,0 +1,90 @@
+
+@import  '../../../../../../defaults.styl'
+
+.slider-categorias
+	width 80%
+	.slider
+		height 400px !important
+		display flex
+		align-items center
+		justify-content center
+		.slick-dotted.slick-slider
+			margin-bottom inherit !important
+		.carousel
+			height 400px
+			width 80%
+			.slick-list
+				height 400px
+				.slick-track
+					height 400px
+					.slide
+						width 500px
+						display flex
+						justify-content center
+						align-items center
+						&:focus
+							outline 0px
+						.categoria
+							width 90%
+							height 100%
+							.imagen-categoria
+								display flex
+								height 200px
+								justify-content center
+								align-items center
+								border 1px solid naranja
+								h1
+									font-size 14px
+									text-align center
+							.ver-mas
+								width 100%
+								.btn-vermas
+									width 100%
+									margin inherit !important
+									min-height inherit
+									min-width inherit
+									line-height 29px
+									background-color naranja
+									border-radius inherit !important
+									span
+										font-size 12px
+										color white
+										text-transform capitalize
+			button.slick-prev
+				left inherit !important
+				right 100%
+				top 25%
+				z-index 1
+				width 45px
+				height 45px
+				@media mobile
+					right 10%
+					width 40px
+					height 40px
+				&:before
+					font-family inherit
+					content '<'
+					font-size 32px
+					line-height 0.5
+					color naranja
+					@media mobile
+						font-size 38px
+			button.slick-next
+				right inherit !important
+				left 99%
+				top 25%
+				width 45px
+				height 45px
+				z-index 2
+				@media mobile
+					left 90%
+					width 40px
+					height 40px
+				&:before
+					font-family inherit
+					content '>'
+					font-size 32px
+					line-height 0.5
+					color naranja
+					@media mobile
+						font-size 38px

@@ -1,0 +1,34 @@
+//- mat-card.componente([ngStyle]="borde")
+//-     mat-toolbar
+//-         mat-toolbar-row(style="justify-content : space-between")
+//-             .titulo
+//-                 h3 {{producto?.nombre }}
+//-                 strong Ficha
+
+//- 
+
+			
+.producto-content#producto([ngClass]="tipo ? 'versatil' : 'normal'")
+	.bandera(*ngIf="promociones.length > 0")
+		img(src="assets/images/tag.png")
+	
+	.imagen
+		picture
+			//- source(srcset="{{imagen.link}}" *ngFor="let imagen of portadas" media="(min-width : 0px)")
+			img([src]="portada?.link")
+	.info
+		//-.marca-container
+			.marca {{marca?.nombre}}
+		.titulo((click)="imprimir()")
+			//- button(mat-button (click)="imprimir()") imprimir
+			.colores
+				button.color(mat-button, *ngFor="let color of colores", [style.background-color]="color.hex")
+					//- md-tooltip {{color.nombre}}
+			h2 {{producto?.nombre}}
+		//- .spinner(ng-if="ctrl.producto.focus && !ctrl.producto.versiones" )
+		//- 	md-progress-circular(md-mode="indeterminate" ng-disabled="!ctrl.producto.versiones" md-diameter="50")
+		.versiones
+			version([producto]="producto",  [version]="version", [promo]="pasarPromociones",  *ngFor="let version of versiones")
+
+		//- md-button(ui-sref="producto({id : ctrl.producto.id})" hide-gt-xs) Ver
+		

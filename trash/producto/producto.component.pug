@@ -1,0 +1,20 @@
+
+mat-card.componente
+    
+    h1 {{ producto?.nombre }}
+    form(class="example-form", [formGroup]='formulario')
+        mat-form-field
+            input(matInput, placeholder="Busca un nombre", formControlName='nombre', [(ngModel)]="producto.nombre")
+        mat-form-field
+            input(matInput, placeholder="Busca un status", formControlName='status', [(ngModel)]="producto.status")
+        button(mat-button, (click)="aceptar()") Aceptar
+    section(*ngIf="producto")
+        autocategoria([id]="producto.IdCategoria",
+        [nuevoProducto]="pasarProducto")
+        automarca([id]="producto.IdMarca",
+        [nuevoProducto]="pasarProducto")
+        autolinea([id]="producto.IdLinea",
+        [nuevoProducto]="pasarProducto")
+        autogama([id]="producto.IdGama",
+        [nuevoProducto]="pasarProducto")
+        colores

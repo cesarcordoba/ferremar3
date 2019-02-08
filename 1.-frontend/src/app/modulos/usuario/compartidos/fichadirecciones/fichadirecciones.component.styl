@@ -1,0 +1,95 @@
+
+@import  '../../../../../defaults.styl'
+
+
+.formulario
+    height: 100%
+    flex 3
+    padding 0 10px
+    display: flex
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .botones
+        display flex
+        width 100%
+        margin-bottom 20px
+        .sucursal
+            margin-right 10px
+        .localizar
+            margin-left 10px
+        .sucursal, .localizar
+            flex 1
+            button
+                height 100%
+                width 100%
+                background-color azul1
+                color white
+
+    mat-form-field
+        width 100%
+        .mat-form-field-wrapper
+            margin 0px
+            padding 0px
+
+.mapa
+    flex 2
+    display: flex
+    flex-direction: column;
+    aling-items center
+
+.registro
+    display: flex
+    width 100%
+
+.nuevadireccion
+    form
+        .linea
+            display flex
+
+.gridregistro
+    display grid
+    grid-gap: 20px 25px
+    width 100%
+    grid-template-areas "..."
+    &.direcciones
+        grid-template-columns repeat(2, 1fr);
+        grid-template-rows repeat(auto-fill, 230px);
+    &.tarjetas
+        grid-template-columns repeat(3, 1fr);
+        grid-template-rows repeat(auto-fill, 230px);
+    .item
+        width 100%
+        heigth 100%
+        mat-card
+            height 100%
+            width 100%
+            padding 0px
+            .tarjeta
+                height calc(100% - 36px)
+                display: flex
+                flex-direction column
+                mat-list
+                    mat-list-item
+                        height 22px
+                        font-size 13px
+                .logo
+                    margin 10px 30px
+                    .mat-icon
+                        height 90px
+                        width 90px
+            .botones
+                display: flex
+        .agregar
+            width calc(100% - 8px)
+            height calc(100% - 8px)
+            border-width: 4px;
+            border-style: dotted;
+            border-color: gray;
+            button
+                height 100%
+                width 100%
+                .central
+                    display: flex
+                    justify-content: center
+                    align-items center

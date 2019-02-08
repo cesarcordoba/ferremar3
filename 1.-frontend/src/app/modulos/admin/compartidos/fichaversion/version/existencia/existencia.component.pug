@@ -1,0 +1,5 @@
+mat-form-field(appearance="outline")
+	mat-chip-list(#chipList)
+		mat-chip(*ngFor="let existencia of existencias", [selectable]="selectable", [removable]="removable", (removed)="remove(fruit)") {{existencia.cantidad}}
+			mat-icon(matChipRemove)
+		input(placeholder="Nueva Existencia", [matChipInputFor]="chipList")

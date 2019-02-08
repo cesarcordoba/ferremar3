@@ -1,0 +1,16 @@
+.categoria
+
+    mat-toolbar
+        h4 {{categoria.nombre}}
+        .lineas
+            .linea(*ngFor="let n of [1,2,3,4]")
+    .slider(*ngIf="categorias")
+        ngx-slick.carousel(#slickModal="slick-modal",   [config]="slideConfig",  (afterChange)="afterChange($event)"  )
+            .slide(ngxSlickItem,  *ngFor="let categoria of categorias.items ; index as i ")
+                fichacategoria([categoria]="categoria")
+                    
+                    p {{ i }}
+                    p {{  categoria.nombre }}
+
+
+// mat-paginator([length]="categorias.items.length" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]")

@@ -1,0 +1,11 @@
+
+.marca-content
+	.marca
+		h2 {{marca?.nombre}}
+		//- mat-form-field(appearance="outline")
+		//- 	mat-label margenes
+		//- 	mat-chip-list(#chipList)
+		//- 		mat-chip(*ngFor="let precio of margenes", [selectable]="selectable", [removable]="true", (removed)="remove(precio)") {{precio.cantidad}} %
+		//- 			mat-icon(matChipRemove) clear
+		//- 		input(placeholder="Escribe un nuevo margen", (matChipInputTokenEnd)="add($event)", [matChipInputFor]="chipList")
+		chipmargenes([chips]="margenes", [id]="marca?.id",  [servicio]="servicio")

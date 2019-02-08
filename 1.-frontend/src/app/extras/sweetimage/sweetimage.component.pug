@@ -1,0 +1,28 @@
+
+<!--component html goes here -->
+
+
+.imagen
+    .titulo
+        .height
+            strong Height
+            p {{height}}
+        .width
+            strong Width
+            p {{width}}
+
+    dropify(
+        [(ngModel)]="file",
+        [isBase64]="true",
+        (pasarArchivo)="nuevoArchivo($event)",
+        [quitarArchivo]="controlImagen",
+        *ngIf="file == false"
+    )
+    croppie(
+        [width]="width",
+        [height]="height",
+        [nuevoArchivo]="controlImagen",
+        (eliminarArchivo)="eliminarArchivo($event)",
+        (imagenFinalizada)="enlazar($event)",
+        *ngIf="file == true"
+    )

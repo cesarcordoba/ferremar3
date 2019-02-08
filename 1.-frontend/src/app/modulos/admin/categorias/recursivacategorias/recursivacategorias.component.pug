@@ -1,0 +1,10 @@
+
+.niveles
+    mat-card(*ngFor="let nivel of niveles")    
+        mat-nav-list
+            mat-list-item(*ngFor="let categoria of nivel.categorias")
+                a(matLine) {{categoria.nombre}}
+                button(mat-icon-button, (click)="mostrar(categoria)")
+                    mat-icon keyboard_tab
+                button(mat-icon-button, (click)="ir(categoria)")
+                    mat-icon send

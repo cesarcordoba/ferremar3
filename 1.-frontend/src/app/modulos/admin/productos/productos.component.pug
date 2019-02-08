@@ -1,0 +1,32 @@
+
+section
+    .container
+        .content
+            //- mat-card.modos
+            //-     span Modos
+            //-     mat-slide-toggle((change)="cambioprecio($event.checked)") precios
+            mat-card.procesos-content
+                div(style="background-color : rgb(76, 175, 80)",  [style.width]="(procesos.completos / (procesos.todos) ) * 100  + '%'" ) {{procesos.completos}}
+                div(style="background-color : rgb(0, 188, 212)",  [style.width]="(procesos.sinrevision / (procesos.todos ) ) * 100 + '%'" ) {{procesos.sinrevision}}
+                div(style="background-color : rgb(255, 193, 7)",  [style.width]="(procesos.sinversiones / (procesos.todos ) ) * 100 + '%'" ) {{procesos.sinversiones}}
+                div(style="background-color : rgb(255, 152, 0)",  [style.width]="(procesos.sinatributos / (procesos.todos ) ) * 100 + '%'" ) {{procesos.sinatributos}}
+                div(style="background-color : rgb(244, 67, 54)",  [style.width]="(procesos.incompletos / (procesos.todos ) ) * 100 + '%'" ) {{procesos.incompletos}}
+                div(style="background-color : black; color : white",  [style.width]="(procesos.descontiniuados / (procesos.todos ) ) * 100 + '%'" ) {{procesos.descontiniuados}}
+
+            .filtros
+                .filtro-content
+                    .linea
+                        mat-form-field.status
+                            mat-select(placeholder="Status", [(ngModel)]="status", (selectionChange)="cambio()")
+                                mat-option(*ngFor="let n of [0,1,2,3,4,5, 6]", [value]="n") {{n}}
+                        autocategoria((capturar)="capturar($event)")
+                        autoproducto((capturar)="capturar($event)")
+                        autoversion((capturar)="capturar($event)")
+                    .linea
+                        automarca((capturar)="capturar($event)")
+                        autolinea((capturar)="capturar($event)")
+                        autogama((capturar)="capturar($event)")
+                button.search(mat-raised-button, (click)="buscar()")
+                    mat-icon search
+            listaproductos([nuevaPeticion]="pasarPeticion")
+            

@@ -1,0 +1,20 @@
+.version
+    .version-content
+        .opciones
+            .opcion(*ngFor="let opcion of opciones")
+                span {{ opcion.nombre }}
+    .precio-container([ngClass]="{ 'normal' : tag.descuento === false,  'descuento' : tag.descuento === true }")
+
+        .precio $ {{ version.precio }}
+        .descuento(*ngIf="tag.descuento") $ {{ version.precio - (( descuento / 100 ) *  version.precio) | number : 0 }}
+    //- .agregarCarrito
+    //- 	md-button(ng-click="ctrl.producto.agregaACarrito(version)")
+    //- 		md-icon shopping_cart
+//- .oferta(*ngIf="ofertas.length > 0" )
+//-     .entrantes
+//-         strong En la compra de
+//-         p(ng-repeat="entrante in version.ofertas.entrantes")  {{ entrante.entrantes.cantidad }} paquetes 
+//-     .salientes
+//-         strong Obtén de regalo
+//-         p(ng-repeat="saliente in version.ofertas.salientes")
+//-             span(ng-repeat="saliente in saliente", ng-if="saliente.IdProducto !== ctrl.producto.id") {{ saliente.nombre }} {{ saliente.salientes.cantidad }}

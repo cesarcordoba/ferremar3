@@ -1,0 +1,6 @@
+.categorias
+    categoria(
+        [categoria]="categoria",
+        (cambiar)="cambioCategoria($event)",
+        (eliminar)="eliminarCategoria($event)",
+        *ngFor="let categoria of categorias")
