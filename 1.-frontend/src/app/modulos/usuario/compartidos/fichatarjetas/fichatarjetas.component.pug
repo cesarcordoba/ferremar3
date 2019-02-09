@@ -1,4 +1,5 @@
-p Hola {{usuario.nombre}}, En este apartado puede introducir tus metodos de pago
+p Hola {{usuario.nombre}}.
+p En este apartado puedes introducir tus métodos de pago.
 .grid.tarjetas
     .formulario(*ngIf="status")
         mat-card
@@ -67,6 +68,6 @@ p Hola {{usuario.nombre}}, En este apartado puede introducir tus metodos de pago
                     p Caducidad {{tarjeta.mes}} / {{tarjeta.periodo}}
             mat-divider
             .botones
-                button(mat-button, (click)="asignarPrincipal(tarjeta.id)", [style.background-color] = "tarjeta.principal === 1 ? 'cyan' : 'white'") principal
+                button(mat-button, (click)="asignarPrincipal(tarjeta.id)", [style.background-color] = "tarjeta.principal === 1 ? '#00acac' : 'white'") principal
                 button(mat-button, (click)="eliminar(tarjeta.id)") Eliminar
     

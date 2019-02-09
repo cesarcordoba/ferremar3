@@ -5,8 +5,8 @@ div(class="contenedor", [class.isMobile]="mobileQuery.matches")
                 mat-icon menu
             button.logo(mat-button (click)="ir('')")
                 .logo-content
-                    img(src="assets/images/No_Foto.png")
-                    h1 El gigante de los azulejos
+                    img(src="assets/images/ferremar_logo.png")
+                    h1 Ferremar
         
             .links
                 //- div(*ngFor="let link of navLinks" )
@@ -27,7 +27,7 @@ div(class="contenedor", [class.isMobile]="mobileQuery.matches")
                     a(mat-menu-item, (click)="salir()")
                         mat-icon exit_to_app
                         span Cerrar Sesión
-        menu
+        //-menu
     mat-sidenav-container(class="sidenav-container", [style.marginTop.px]="mobileQuery.matches ? 65 : 0")
         mat-sidenav(#snav, [mode]="mobileQuery.matches ? 'over' : 'side'", [fixedInViewport]="mobileQuery.matches", fixedTopGap="65", [opened]="mobileQuery.matches? false : true")
             mat-nav-list
@@ -37,3 +37,4 @@ div(class="contenedor", [class.isMobile]="mobileQuery.matches")
         mat-sidenav-content
             div.contenido
                 router-outlet
+            footer

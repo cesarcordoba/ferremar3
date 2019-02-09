@@ -52,6 +52,7 @@ export class SweetimageComponent {
     enlazar(event){
 
         this.base64.emit(event)
+        console.log(this.base64)
     }
 
 }

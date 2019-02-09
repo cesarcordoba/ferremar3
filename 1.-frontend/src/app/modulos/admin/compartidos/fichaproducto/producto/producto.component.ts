@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import {  BehaviorSubject, Observable  } from 'rxjs'
 import * as _ from 'lodash'
@@ -9,7 +9,8 @@ import { ProductoService, AccionService, AuthService } from '../../../../../serv
 @Component({
   selector: 'producto',
   templateUrl: './producto.component.pug',
-  styleUrls: ['./producto.component.styl']
+  styleUrls: ['./producto.component.styl'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ProductoComponent implements OnInit, AfterViewInit {
 

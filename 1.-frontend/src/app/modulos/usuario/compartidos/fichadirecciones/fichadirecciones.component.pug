@@ -74,7 +74,7 @@
                             mat-list-item {{direccion.codigopostal}}
                     mat-divider
                     .botones
-                        button(mat-button, (click)="asignarPrincipal(direccion.id)", [style.background-color] = "direccion.principal === 1 ? 'cyan' : 'white'") principal
+                        button(mat-button, (click)="asignarPrincipal(direccion.id)", [style.background-color] = "direccion.principal === 1 ? '#00acac' : 'white'") principal
                         button(mat-button (click)="eliminarDireccion(direccion.id)") Eliminar
     .mapa
         div(#googleMap style="width:100%;height:100%;")

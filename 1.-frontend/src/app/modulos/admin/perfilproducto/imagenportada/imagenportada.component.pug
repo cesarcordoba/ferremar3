@@ -1,7 +1,7 @@
 .imagenportada
 	.modo
 		span Modo de edición
-		button(mat-button, (click)="edicion = !edicion", [style.background-color]="edicion ? '#cc0000' : '#9c3'")
+		button.btn-activar-edicion(mat-button, (click)="edicion = !edicion", [style.background-color]="edicion ? '#cc0000' : '#00acac'")
 			span(*ngIf="edicion === false") Activar
 			span(*ngIf="edicion === true") Desactivar
 
@@ -34,11 +34,11 @@
 				mat-chip(*ngFor="let chip of configuracion.escalas") h:{{ chip.height }} - w:{{ chip.width }}
 	.inputs(*ngIf="edicion === true")
 		sweetimage(
-			[(ngModel)]="file",
+			(base64)="file = $event",
 			[width]="configuracion.escalas[0].width",
 			[height]="configuracion.escalas[0].height"
 			)
-		button(mat-icon-button, (click)="guardar()", *ngIf="carga==false")
+		button.btn-guardar-imagen(mat-icon-button, matTooltip="Guardar", (click)="guardar()", *ngIf="carga==false")
 			mat-icon save
 		mat-spinner(*ngIf="carga==true")
 	.imagenes(*ngIf="edicion === false")

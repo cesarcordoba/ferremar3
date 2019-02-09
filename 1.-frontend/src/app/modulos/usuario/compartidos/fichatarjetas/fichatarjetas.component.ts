@@ -40,7 +40,7 @@ export class FichatarjetasComponent implements OnInit {
         .subscribe(response => this.usuario = response)
 
         this.nuevatarjeta = this.fb.group({
-            nombre: ['Ulises Gonzalez Callejas', Validators.required],
+            nombre: ['Nombre para pruebas', Validators.required],
             numero: ['4111111111111111', Validators.required],
             mes: ['08', Validators.required],
             ano: ['23', Validators.required],

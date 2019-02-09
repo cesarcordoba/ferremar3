@@ -114,19 +114,18 @@ export class ImagenportadaComponent implements OnInit {
 		}
 	}
 	guardar() {
-        let folio = _.random(0, 100000)
+		let folio = _.random(0, 100000)
 		this.configuracion.escalas.forEach((escala, index )=> {
 			this.subir(index, folio, escala.width, escala.height );
 		})
 	}
 	private subir(index, folio, width, height){
-
 		if (typeof this.file === 'string') {
 			jimp.read(this.file)
 				.then(image => {
 					height ? null : height = width / 2;
 					image.resize(width, height).quality(100).getBuffer(jimp.MIME_PNG, (err, value) => {
-						this._aws.subirArchivo(value, 'bull-imagenes', 'tryadd-portadas/', ('portadas-id-' + this.id + width + '-' + height + '.png')).subscribe(archivo => {
+						this._aws.subirArchivo(value, 'bull-imagenes', 'ferrenar-portadas/', ('portadas-id-' + this.id + width + '-' + height + '.png')).subscribe(archivo => {
 							if (archivo == true) {
 								this.carga = true;
 							} else {

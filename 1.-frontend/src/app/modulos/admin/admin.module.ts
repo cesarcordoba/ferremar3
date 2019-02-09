@@ -48,11 +48,15 @@ import { PerfilanuncioModule } from './perfilanuncio/perfilanuncio.module';
 
 import { AsesoresModule } from './asesores/asesores.module';
 
+import { CategoriasModule } from './categorias/categorias.module'
+
 import { PerfilasesorModule } from './perfilasesor/perfilasesor.module';
 
 import { TutorialesModule } from './tutoriales/tutoriales.module';
 
 import { PerfiltutorialesModule } from './perfiltutoriales/perfiltutoriales.module';
+
+import { PerfilcategoriaModule } from './perfilcategoria/perfilcategoria.module';
 
 @NgModule({
 	imports: [
@@ -81,7 +85,9 @@ import { PerfiltutorialesModule } from './perfiltutoriales/perfiltutoriales.modu
         AsesoresModule,
         PerfilasesorModule,
         TutorialesModule,
-        PerfiltutorialesModule
+        PerfiltutorialesModule,
+        CategoriasModule,
+        PerfilcategoriaModule
 		],
 	entryComponents: [
 

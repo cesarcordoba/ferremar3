@@ -147,7 +147,7 @@ export class ImagenavatarComponent implements OnInit {
 					.then(image => {
 						height ? null : height = width / 2;
 						image.resize(width, height).quality(100).getBuffer(jimp.MIME_PNG, (err, value) =>
-							this._aws.subirArchivo(value, 'bull-imagenes', 'tryadd-portadas/', ('avatares-id-' + this.id + width + '-' + height + '.png'))
+							this._aws.subirArchivo(value, 'bull-imagenes', 'ferrenar-portadas/', ('avatares-id-' + this.id + width + '-' + height + '.png'))
 								.subscribe(archivo => {
 									console.log('si')
 
