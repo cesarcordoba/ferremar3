@@ -1,4 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core'
+import { APILOCAL } from './../../../../environments/environment';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../servicios/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -11,7 +12,7 @@ import * as _ from 'lodash'
   styleUrls: ['./login.component.styl'],
 })
 export class LoginComponent implements OnInit {
-
+    url = APILOCAL.url
     loginForm: FormGroup;
     registroForm: FormGroup;
 	inicioIncorecto = false;

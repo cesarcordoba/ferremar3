@@ -3,9 +3,11 @@
         mat-form-field
             input(matInput, placeholder="busca un producto   ", [matAutocomplete]="auto", formControlName='input')
 
-    mat-autocomplete(#auto="matAutocomplete")
+    mat-autocomplete(#auto="matAutocomplete", [displayWith]="displayFn")
         mat-option(*ngIf="isLoading", class="is-loading")
             mat-spinner(diameter="50")
         ng-container(*ngIf="!isLoading")
-            mat-option(*ngFor="let item of itemsfiltrados", [value]="item")
-                span {{ item.nombre }} 
+            mat-option(*ngFor="let item of itemsfiltrados", [value]="item", (click)="ir(item)")
+                .opcion(style="display : flex")
+                    portada([producto]="item")
+                    span {{ item.nombre }} 

@@ -2,6 +2,7 @@ import { AuthService } from './../../servicios/auth.service';
 import { Usuario } from './../../modelos/Usuario.model';
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
+import * as _ from 'lodash'
 
 @Component({
 	selector: 'app-admin',
@@ -42,6 +43,7 @@ export class AdminComponent implements OnInit, OnDestroy {
 	ngOnInit() {
 		this.us.obtenerUsuario().subscribe(user => {
 			this.usuario = user
+			if(!_.isNull(this.usuario)) this.usuario.obtenerAvatares()
 			// user && user.getTipo() == 'admin'? this.navLinks.push({ path: '/admin/usuarios', label: 'Usuarios', icon: 'supervised_user_circle' }) : null;
 		})
 	}

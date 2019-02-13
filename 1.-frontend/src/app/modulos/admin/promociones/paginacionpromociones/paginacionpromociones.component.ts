@@ -6,9 +6,9 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { isPlatformBrowser } from '@angular/common';
 import { CrearpromocionComponent } from './crearpromocion/crearpromocion.component'
 import * as _ from 'lodash'
-declare var $: any;
-//import * as $ from 'jquery';
-// import 'fullcalendar';
+//declare var $: any;
+import * as $ from 'jquery';
+import 'fullcalendar';
 
 @Component({
   selector: 'paginacionpromociones',
@@ -49,6 +49,7 @@ export class PaginacionpromocionesComponent implements OnInit {
         //$(function() {
 
         let containerEl = $('#calendar');
+        console.log( $('#calendar'))
 
         console.log(containerEl)
 

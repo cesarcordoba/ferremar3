@@ -2,6 +2,8 @@
     .slider(*ngIf="productos")
         ngx-slick.carousel(#slickModal="slick-modal",   [config]="slideConfig",  (afterChange)="afterChange($event)"  )
             .slide(ngxSlickItem,  *ngFor="let producto of productos.items ; index as i ")
+                .imagen
+                    img(src="{{producto.portadasindividual.link}}")
                 p {{  producto.nombre }}
                 .btns-movilidad
                     button.comprar(mat-button) Comprar

@@ -174,8 +174,10 @@ export class ProductoRouter {
 
         this._rutas.route('/data/producto_contarProcesos/')
             .get(this.controlador.contarProcesos)
-
         
+        this._rutas.route('/data/producto_xStatus/')
+            .get(this.controlador.xStatus)
+
         }
 
     rutas() {

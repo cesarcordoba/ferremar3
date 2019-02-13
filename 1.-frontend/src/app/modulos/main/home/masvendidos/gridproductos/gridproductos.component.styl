@@ -10,7 +10,7 @@
             cursor pointer
             overflow hidden
             position relative
-            height 200px
+            height 230px
             margin-bottom 20px
             &:focus
                 outline 0px
@@ -29,6 +29,8 @@
                     color white
                     margin 0
             .botones-vendidos
+                z-index 2
+                opacity 0.6
                 position absolute
                 bottom 1px
                 width 100%
@@ -39,6 +41,7 @@
                 align-items center
                 background-color negro
                 .info-content
+                    z-index 5 !important
                     display flex
                     flex-direction row
                     justify-content flex-start
@@ -61,6 +64,7 @@
                                 font-weight bolder
 
                 .carrito-vendidos
+                    z-index 5 !important
                     width 15%
                     height 36px
                     .btn-vermas-carrito

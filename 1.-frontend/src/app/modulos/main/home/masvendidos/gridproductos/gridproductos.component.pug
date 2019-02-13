@@ -7,13 +7,13 @@
             mat-grid-tile( *ngFor="let producto of productos?.items", [colspan]="colspan", [rowspan]="rowspan")
                 .vendidos-content(style="margin-right: 15px")
                     .nombre-vendidos
-                        p {{producto.nombre}}
+                        img(src="{{producto.portadasindividual.link}}")
                     .botones-vendidos
                         .info-content
                             .descripcion
-                                p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum iste vel reprehenderit, reiciendis laboriosam it.
+                                p  {{producto.nombre}}
                             .boton-vermas
-                                button.btn-vermas-grid(mat-button) ver más
+                                button.btn-vermas-grid(mat-button, (click)="ir(producto)") ver más
                         .carrito-vendidos
                             button.btn-vermas-carrito(mat-button)
                                 img(src="assets/images/ferremar_carrito.png")

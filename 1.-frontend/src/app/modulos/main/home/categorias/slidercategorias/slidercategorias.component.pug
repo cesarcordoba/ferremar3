@@ -1,10 +1,10 @@
 
 .slider-categorias
     .slider(*ngIf="categorias")
-        ngx-slick.carousel(#slickModal="slick-modal",   [config]="slideConfig",  (afterChange)="afterChange($event)"  )
+        ngx-slick.carousel(#slickModal="slick-modal",   [config]="slideConfigCategorias",  (afterChange)="afterChange($event)"  )
             .slide(ngxSlickItem,  *ngFor="let categoria of categorias.items ; index as i ")
                 .categoria
                     .imagen-categoria
                         h1 {{categoria.nombre}}
                     .ver-mas
-                        button.btn-vermas(mat-button) ver más +
+                        button.btn-vermas(mat-button, (click)="mandarAProductos('busqueda')") ver más +

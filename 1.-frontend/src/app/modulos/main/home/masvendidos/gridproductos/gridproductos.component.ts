@@ -1,7 +1,7 @@
-
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-
+import * as _ from 'lodash'
 import { ProductoService } from '../../../../../servicios';
+import { Router } from '@angular/router';
 @Component({
   selector: 'gridproductos',
   templateUrl: './gridproductos.component.pug',
@@ -19,23 +19,31 @@ export class GridproductosComponent implements OnInit {
     }
     filtro : any;
     columnas = 2
-    height = '200px'
+    height = '230px'
     colspan = 1
     rowspan = 1
 
-    constructor() {
+    constructor(public route : Router) {
         this.filtro = {
                 pagina : 1,
                 limite :  (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) ?  4 :  2,
                 order : ['id'],
-                where : {},
+                where : {status:1},
                 include : []
             }
 
     ProductoService.paginacion(this.filtro)
-    .then(response => this.productos = response)
-
+    .then(response => {
+      this.productos = response
+      this.productos.items.forEach(n => n.obtenerPortadasIndivudal('200x200'))
+      console.log(this.productos)
+    })
+      
   }
+
+  ir(producto){
+    this.route.navigate(['producto/' + producto.id ], { queryParams: { nombre: _.snakeCase(producto.nombre) } } )
+}
 
   ngOnInit() {
 

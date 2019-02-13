@@ -10,7 +10,7 @@ import { PromoService } from '../../../../../servicios';
 })
 export class SliderpromocionesComponent implements OnInit {
 
-    slideConfig : any
+    slideConfigPromos : any
     control : any
     currentSlide : any;
 
@@ -24,7 +24,7 @@ export class SliderpromocionesComponent implements OnInit {
     filtro : any;
 
     constructor() {
-        this.slideConfig = { "slidesToShow": 2, "slidesToScroll": 2}
+        this.slideConfigPromos = { "slidesToShow": 2, "slidesToScroll": 2, 'autoplay': true, 'autoplaySpeed': 2000}
         this.currentSlide = 0
         this.filtro = {
                 pagina : 1,

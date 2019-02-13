@@ -11,7 +11,7 @@ import { BuscadormainComponent } from './buscadormain.component';
 
 
 import { BuscadornavComponent } from './buscadornav/buscadornav.component';
-
+import { PortadaComponent } from './buscadornav/portada/portada.component';
 
 @NgModule({
     imports: [
@@ -25,6 +25,8 @@ import { BuscadornavComponent } from './buscadornav/buscadornav.component';
     declarations: [
         BuscadormainComponent,
         BuscadornavComponent,
+        PortadaComponent
+        
     ],
     exports: [
         BuscadormainComponent

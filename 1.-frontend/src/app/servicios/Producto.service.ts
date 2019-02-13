@@ -92,5 +92,7 @@ export class ProductoService {
     public static procesos = () => axios.default.get( url + '/data/producto_procesos/' ).then(response => response.data)
     public static contarProcesos = () => axios.default.get( url + '/data/producto_contarProcesos/' ).then(response => response.data)
 
+    public static xStatus = () => axios.default.get( url + '/data/producto_xStatus/').then(response => response.data)
+
     //- Finalizo
 }

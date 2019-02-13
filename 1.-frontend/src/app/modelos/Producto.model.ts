@@ -21,6 +21,7 @@ export class Producto {
     ambientes : any;
     nombre : string;
     status : number;
+    portadasindividual: any;
 
     constructor(arg) {
         if(_.isObject(arg))
@@ -57,6 +58,14 @@ export class Producto {
         return new Promise(resolve => {
             ProductoService.portadas(this.id)
             .then(response => this.portadas = response)
+            .then(response => resolve(response))
+        })
+    }
+
+    obtenerPortadasIndivudal(valor){
+        return new Promise(resolve => {
+            ProductoService.portadas(this.id)
+            .then(portadas => this.portadasindividual = portadas.find(n => n.dimension === valor))
             .then(response => resolve(response))
         })
     }

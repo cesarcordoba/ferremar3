@@ -2,6 +2,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 import { CategoriaService } from '../../../../../servicios';
+import { Router } from '@angular/router';
 @Component({
     selector: 'slidercategorias',
     templateUrl: './slidercategorias.component.pug',
@@ -10,7 +11,7 @@ import { CategoriaService } from '../../../../../servicios';
 })
 export class SlidercategoriasComponent implements OnInit {
 
-    slideConfig : any
+    slideConfigCategorias : any
     control : any
     currentSlide : any;
 
@@ -23,8 +24,8 @@ export class SlidercategoriasComponent implements OnInit {
     }
     filtro : any;
 
-    constructor() {
-        this.slideConfig = { "slidesToShow": 4, "slidesToScroll": 4 , "arrows" : true }
+    constructor(public route : Router) {
+        this.slideConfigCategorias = { "slidesToShow": 4, "slidesToScroll": 4 , "arrows" : true, 'autoplay': true, 'autoplaySpeed': 2000}
         this.currentSlide = 0
         this.filtro = {
                 pagina : 1,
@@ -42,6 +43,10 @@ export class SlidercategoriasComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  mandarAProductos(ruta){
+    this.route.navigate([ ruta ])
   }
 
   afterChange = (event) => this.currentSlide = event.currentSlide

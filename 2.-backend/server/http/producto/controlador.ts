@@ -362,4 +362,9 @@ export class ProductoController {
         .then(response => res.status(200).jsonp(response))
         .catch(err => errorHandler(err, 'Producto_contarProcesos', res))
     
+    xStatus = (req: Request, res: Response, next: NextFunction) =>
+        Producto.findAll({where:{status: 1}})
+            .then(result => res.status(200).jsonp(result))
+            .catch(err => errorHandler(err, 'Producto_xStatus', res))
+    
 }

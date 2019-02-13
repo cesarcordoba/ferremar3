@@ -1,16 +1,8 @@
-
-mat-card.componente
-    mat-toolbar
-        mat-toolbar-row(style="justify-content : space-between")
-            .titulo
-                h3 paginacionmarcas
-                strong Paginación
-
-    mat-table(mat-table, [dataSource]="marcas.items", class="mat-elevation-z8")
-        ng-container(matColumnDef="nombre")
-            mat-header-cell( *matHeaderCellDef) Nombre
-            mat-cell( *matCellDef="let element")
-                button(mat-button, (click)="ir(element)") {{element.nombre}}
-        mat-header-row( *matHeaderRowDef="['nombre']")
-        mat-row(*matRowDef="let row; columns: ['nombre'];")
-    mat-paginator([length]="marcas.paginas * filtro.limite", [pageSize]="10", [pageSizeOptions]="[5, 10, 25, 100]", (page)="cambioPagina($event)")
+mat-table(mat-table, [dataSource]="marcas.items", class="mat-elevation-z8")
+    ng-container(matColumnDef="nombre")
+        mat-header-cell( *matHeaderCellDef) Nombre
+        mat-cell( *matCellDef="let element")
+            button(mat-button, (click)="ir(element)") {{element.nombre}}
+    mat-header-row( *matHeaderRowDef="['nombre']")
+    mat-row(*matRowDef="let row; columns: ['nombre'];")
+mat-paginator([length]="marcas.paginas * filtro.limite", [pageSize]="10", [pageSizeOptions]="[5, 10, 25, 100]", (page)="cambioPagina($event)")

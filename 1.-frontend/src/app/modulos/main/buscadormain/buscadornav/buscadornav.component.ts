@@ -8,6 +8,7 @@ import {switchMap, debounceTime, tap, finalize} from 'rxjs/operators';
 import * as _ from 'lodash'
 
 import { ProductoService } from '../../../../servicios';
+import { Router } from '@angular/router';
 @Component({
   selector: 'buscadornav',
   templateUrl: './buscadornav.component.pug',
@@ -24,7 +25,7 @@ export class BuscadornavComponent implements OnInit {
     formulario: FormGroup;
     isLoading = false;
 
-    constructor(private fb: FormBuilder) {
+    constructor(private fb: FormBuilder, public route : Router) {
 
         this.formulario = this.fb.group({
             input: null
@@ -56,6 +57,14 @@ export class BuscadornavComponent implements OnInit {
         });
 
   }
+
+  displayFn(item) {
+    if (item) { return item.nombre; }
+  }
+
+  ir(x){
+    this.route.navigate(['producto/' + x.id ], { queryParams: { nombre: _.snakeCase(x.nombre) } } )
+}
 
   ngOnInit() {
 

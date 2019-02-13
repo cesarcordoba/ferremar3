@@ -25,19 +25,22 @@ export class SliderproductosComponent implements OnInit {
     filtro : any;
 
     constructor(public route : Router) {
-        this.slideConfig = { "slidesToShow": 1, "slidesToScroll": 1 , "dots": true}
+        this.slideConfig = { "slidesToShow": 1, "slidesToScroll": 1 , "dots": true, 'autoplay': true, 'autoplaySpeed': 2000}
         this.currentSlide = 0
         this.filtro = {
                 pagina : 1,
                 limite :  (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) ?  20 :  3,
                 order : ['id'],
-                where : {},
+                where : {status:1},
                 include : []
             }
 
-    ProductoService.paginacion(this.filtro)
-    .then(response => this.productos = response)
-    .then(response => console.log(response))
+      ProductoService.paginacion(this.filtro)
+      .then(response => {
+        this.productos = response
+        this.productos.items.forEach(n => n.obtenerPortadasIndivudal('400x400'))
+        console.log(this.productos)
+      })
 
   }
 
